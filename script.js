@@ -41,3 +41,8 @@ subract.addEventListener("click", function () {
 
   output.innerText = result;
 });
+
+// This function display values
+function displayPedidoA(value) {
+    document.getElementById("pedidoA").value += value;
+}
