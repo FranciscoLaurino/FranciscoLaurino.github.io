@@ -23,11 +23,11 @@ let subract = document.querySelector("#subtract");
 add.addEventListener("click", function () {
   let output = document.querySelector("#output");
   let result = Number(output.innerText) + 1;
-
+/*
   if (result > 10) {
     result = 0;
   }
-
+*/
   output.innerText = result;
 });
 
@@ -45,4 +45,10 @@ subract.addEventListener("click", function () {
 // This function display values
 function displayPedidoA(value) {
     document.getElementById().value += value;
+}
+// This function calculated Order values
+function calculateOrders() {
+    var p = document.getElementById("MaquinaCalculado").value;
+    var q = eval(p)*2;
+    document.getElementById("MaquinaCalculado").value = q;
 }

@@ -7,9 +7,7 @@
 </head>
 <body>
         <h1>Cafeteria</h1>
-        <p>
-            Beneficios en Invierno!
-        </p>
+        <p>Beneficios en Invierno!</p>
 
         <h3>Insumos</h3>
         <div class="counter_container">
@@ -17,23 +15,36 @@
             <span id="output">0</span>
             <button id="add">+</button>
         </div>
-
+        <p>Pedido A:</p>
+        <input type="number" value="1" onclick="displayPedido()" />
+        <p>Pedido B:</p>
+        <input type="number" value="1" onclick="displayPedido()" />
+        <p>Pedido C:</p>
+        <input type="number" value="1" onclick="displayPedido()" />
 <table class="calculator" >
-            <tr>
-                <td>Pedidos A:</td>
+    <tr>
+        <td>Maquina A: 1:2</td>
+    </tr>
+    <tr>
+        <td>Insumos A:</td>
+        <td> <input type="number" value="1" onclick="displayPedido()" /> </td>
+        <td>Output A:</td>
+        <td> <input class="display-box" type="text" id="MaquinaCalculado" disabled /> </td>
+    </tr>
+    <tr>
+        <td>Pedidos B:</td>
                 <!-- <td colspan="2"><input class="display-box" type="text" id="pedidoA" disabled /> </td> -->
-                <td> <input type="number" value="1" onclick="displayPedido()" /> </td>
-            </tr>
-            <tr>
-                <td>Pedidos B:</td>
-                <!-- <td colspan="2"><input class="display-box" type="text" id="pedidoA" disabled /> </td> -->
-                <td> <input type="number" value="1" onclick="displayPedido()" /> </td>
-            </tr>
-            <tr>
+        <td> <input type="number" value="1" onclick="displayPedido()" /> </td>
+    </tr>
+    <tr>
                 <td>Pedidos C:</td>
                 <!-- <td colspan="2"><input class="display-box" type="text" id="pedidoA" disabled /> </td> -->
                 <td> <input type="number" value="1" onclick="displayPedido()" /> </td>
-            </tr>
+    </tr>
+    <tr>
+        <td> <input type="button" value="=" onclick="calculateOrders()" id="btn" /> </td>
+    </tr>
+            
 </table>
 
 <table class="calculator" >
