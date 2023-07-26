@@ -42,13 +42,26 @@ subract.addEventListener("click", function () {
   output.innerText = result;
 });
 
-// This function display values
+// This function display values & calculate orders
 function displayPedidoA(value) {
     document.getElementById().value += value;
+    var inputA = document.getElementById("inputA").value;
+    var outputA = inputA*2;
+    document.getElementById("MaquinaA").value = outputA;
+}
+function displayPedidoB(value) {
+    document.getElementById().value += value;
+    var inputB = document.getElementById("inputB").value;
+    var outputB = inputB*1;
+    document.getElementById("MaquinaB").value = outputB;
+}
+function displayPedidoC(value) {
+    document.getElementById().value += value;
+    var inputC = document.getElementById("inputC").value;
+    var outputC = Math.floor(inputC/2);
+    document.getElementById("MaquinaC").value = outputC;
 }
 // This function calculated Order values
 function calculateOrders() {
-    var p = document.getElementById("MaquinaCalculado").value;
-    var q = eval(p)*2;
-    document.getElementById("MaquinaCalculado").value = q;
+    //pensar como validar los insumos vs los pedidos
 }

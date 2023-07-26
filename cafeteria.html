@@ -16,30 +16,34 @@
             <button id="add">+</button>
         </div>
         <p>Pedido A:</p>
-        <input type="number" value="1" onclick="displayPedido()" />
+        <input type="number" value="1" id="ordersA" onclick="display()" />
         <p>Pedido B:</p>
-        <input type="number" value="1" onclick="displayPedido()" />
+        <input type="number" value="1" id="ordersB" onclick="display()" />
         <p>Pedido C:</p>
-        <input type="number" value="1" onclick="displayPedido()" />
+        <input type="number" value="1" id="ordersC" onclick="display()" />
 <table class="calculator" >
     <tr>
-        <td>Maquina A: 1:2</td>
+        <td style="color:#ffffff">Maquina A 1:2</td>
+        <td style="color:#ffffff">Maquina B 1:1</td>
+        <td style="color:#ffffff">Maquina C 2:2</td>
     </tr>
     <tr>
-        <td>Insumos A:</td>
-        <td> <input type="number" value="1" onclick="displayPedido()" /> </td>
-        <td>Output A:</td>
-        <td> <input class="display-box" type="text" id="MaquinaCalculado" disabled /> </td>
+        <td style="color:#ffffff">Insumos A:</td>
+        <td> <input type="number" value="1" id="inputA" onclick="displayPedidoA()" /> </td>
+        <td style="color:#ffffff">Output A:</td>
+        <td> <input class="display-box" type="text" id="MaquinaA" disabled /> </td>
     </tr>
     <tr>
-        <td>Pedidos B:</td>
-                <!-- <td colspan="2"><input class="display-box" type="text" id="pedidoA" disabled /> </td> -->
-        <td> <input type="number" value="1" onclick="displayPedido()" /> </td>
+        <td style="color:#ffffff">Insumos B:</td>
+        <td> <input type="number" value="1" id="inputA" onclick="displayPedidoB()" /> </td>
+        <td style="color:#ffffff">Output B:</td>
+        <td> <input class="display-box" type="text" id="MaquinaB" disabled /> </td>
     </tr>
     <tr>
-                <td>Pedidos C:</td>
-                <!-- <td colspan="2"><input class="display-box" type="text" id="pedidoA" disabled /> </td> -->
-                <td> <input type="number" value="1" onclick="displayPedido()" /> </td>
+        <td style="color:#ffffff">Insumos C:</td>
+        <td> <input type="number" value="1" id="inputA" onclick="displayPedidoC()" /> </td>
+        <td style="color:#ffffff">Output C:</td>
+        <td> <input class="display-box" type="text" id="MaquinaC" disabled /> </td>
     </tr>
     <tr>
         <td> <input type="button" value="=" onclick="calculateOrders()" id="btn" /> </td>
