@@ -35,9 +35,9 @@ input[type=number] {
     background-color: #64278f;
     color: white;
     border: solid black 0.5px;
-    width: 100%;
+    width: 30%;
     border-radius: 5px;
-    height: 70%;
+    height: 30%;
     outline: none;
 }
 input:active[type=button] {
