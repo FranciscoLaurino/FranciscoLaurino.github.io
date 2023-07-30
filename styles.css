@@ -184,7 +184,7 @@ img {
   background-color: #fff;
   border-radius: 8px;
   min-width: 320px;
-  min-height: 320px; 
+  min-height: 160px; 
   padding: 16px 10px;
 }
 
@@ -207,7 +207,7 @@ img {
 .song-info .title {
   color: #403d40;
   font-size: 14px;
-  line-height: 120px;
+  line-height: 60px;
 }
 
 .sub-line {
@@ -218,7 +218,7 @@ img {
 
 .subtitle, .time {
   font-size: 12px;
-  line-height: 120px;
+  line-height: 60px;
   color: #c6c5c6;
 }
 
