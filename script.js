@@ -121,3 +121,18 @@ function calculateOrders() {
 $('input').on('change', function() {
   $('body').toggleClass('blue');
 });
+
+//Para los contadores nuevos
+function increment(counterName) {
+  var counterElement = document.getElementById('counter' + counterName);
+  var currentValue = parseInt(counterElement.innerText);
+  counterElement.innerText = currentValue + 1;
+}
+
+function decrement(counterName) {
+  var counterElement = document.getElementById('counter' + counterName);
+  var currentValue = parseInt(counterElement.innerText);
+  if (currentValue > 0) {
+      counterElement.innerText = currentValue - 1;
+  }
+}

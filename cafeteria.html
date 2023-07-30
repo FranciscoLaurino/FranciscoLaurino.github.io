@@ -48,11 +48,9 @@
               <div class="time">4</div>
             </div>
             <!-- start of contador dentro del song info -->
-            <div class="counter_container">
-              <button id="subtract_A">-</button>
-              <span id="output_A">0</span>
-              <button id="add_A">+</button>
-            </div>
+            <h1>Counter A: <span id="counterA">0</span></h1>
+            <button onclick="increment('A')">+</button>
+            <button onclick="decrement('A')">-</button>
             <!-- end of contador dentro del song info -->
           </label>
           <label class="song-info" id="song-info-2">
