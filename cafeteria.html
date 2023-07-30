@@ -34,10 +34,10 @@
         <img src="https://static.vecteezy.com/system/resources/previews/017/549/546/non_2x/coffee-machine-with-cups-cafe-or-shop-equipment-vector.jpg" alt="song">
       </label>
       <label class="card" for="item-2" id="song-2">
-        <img src="https://vectorportal.com/storage/bakery-products.jpg" alt="song">
+        <img src="https://static.vecteezy.com/system/resources/previews/000/155/874/non_2x/free-bakeries-hand-drawn-icon-vector.jpg" alt="song">
       </label>
       <label class="card" for="item-3" id="song-3">
-        <img src="https://media.istockphoto.com/id/1379885331/es/vector/licuadora.jpg" alt="song">
+        <img src="https://static.vecteezy.com/system/resources/previews/014/043/172/non_2x/smoothie-outlined-icons-vector.jpg" alt="song">
       </label>
     </div>
     <div class="player">
@@ -64,12 +64,26 @@
             </div>
           </label>
           <label class="song-info" id="song-info-3">
-            <div class="title">Pedidos de licuados/jugos/smoothies (C)/div>
+            <div class="title">Pedidos de licuados o jugos (C)</div>
             <div class="sub-line">
               <div class="subtitle">Cuantas ordenes?</div>
               <div class="time">4.05</div>
             </div>
+            <!-- start of contador dentro del song info -->
+            <div class="counter_container">
+              <button id="subtract">-</button>
+              <span id="output">0</span>
+              <button id="add">+</button>
+          </div>
+          <p>Pedido A:</p>
+          <input type="number" value="1" id="ordersA" onclick="display()" />
+          <p>Pedido B:</p>
+          <input type="number" value="1" id="ordersB" onclick="display()" />
+          <p>Pedido C:</p>
+          <input type="number" value="1" id="ordersC" onclick="display()" />
+          <!-- end of contador dentro del song info -->
           </label>
+
         </div>
       </div>
       <div class="progress-bar">
