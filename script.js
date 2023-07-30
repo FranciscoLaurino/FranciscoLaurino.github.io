@@ -33,8 +33,8 @@ add.addEventListener("click", function () {
 });
 */
 
-let add = document.querySelector("#add");
-let subract = document.querySelector("#subtract");
+let add = document.querySelector("#add_A");
+let subract = document.querySelector("#subtract_A");
 
 add.addEventListener("click", function () {
 
