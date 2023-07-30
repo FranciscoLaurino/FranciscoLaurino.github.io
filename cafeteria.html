@@ -1,35 +1,49 @@
-
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
+
 <head>
   <meta charset="utf-8">
   <title> Shop Calculator using HTML, CSS and JavaScript </title>
   <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
 
   <!-- un wrapper de seleccion multiple -->
-    <div class="container">
-      <input type="radio" name="slider" id="item-1" checked>
-      <input type="radio" name="slider" id="item-2">
-      <input type="radio" name="slider" id="item-3">
+  <div class="container">
+    <input type="radio" name="slider" id="item-1" checked>
+    <input type="radio" name="slider" id="item-2">
+    <input type="radio" name="slider" id="item-3">
+    <input type="radio" name="slider" id="item-4">
     <div class="cards">
       <label class="card" for="item-1" id="song-1">
-        <img src="https://static.vecteezy.com/system/resources/previews/017/549/546/non_2x/coffee-machine-with-cups-cafe-or-shop-equipment-vector.jpg" alt="song">
+        <img
+          src="https://static.vecteezy.com/system/resources/previews/017/549/546/non_2x/coffee-machine-with-cups-cafe-or-shop-equipment-vector.jpg"
+          alt="song">
       </label>
       <label class="card" for="item-2" id="song-2">
-        <img src="https://static.vecteezy.com/system/resources/previews/000/155/874/non_2x/free-bakeries-hand-drawn-icon-vector.jpg" alt="song">
+        <img
+          src="https://static.vecteezy.com/system/resources/previews/000/155/874/non_2x/free-bakeries-hand-drawn-icon-vector.jpg"
+          alt="song">
       </label>
       <label class="card" for="item-3" id="song-3">
-        <img src="https://static.vecteezy.com/system/resources/previews/014/043/172/non_2x/smoothie-outlined-icons-vector.jpg" alt="song">
+        <img
+          src="https://static.vecteezy.com/system/resources/previews/014/043/172/non_2x/smoothie-outlined-icons-vector.jpg"
+          alt="song">
+      </label>
+      <label class="card" for="item-4" id="song-4">
+        <img
+          src="https://static.vecteezy.com/system/resources/previews/014/043/172/non_2x/smoothie-outlined-icons-vector.jpg"
+          alt="song">
       </label>
     </div>
     <div class="player">
       <div class="upper-part">
         <div class="play-icon">
-          <svg width="20" height="20" fill="#2992dc" stroke="#2992dc" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="feather feather-play" viewBox="0 0 24 24">
-            <defs/>
-            <path d="M5 3l14 9-14 9V3z"/>
+          <svg width="20" height="20" fill="#2992dc" stroke="#2992dc" stroke-linecap="round" stroke-linejoin="round"
+            stroke-width="2" class="feather feather-play" viewBox="0 0 24 24">
+            <defs />
+            <path d="M5 3l14 9-14 9V3z" />
           </svg>
         </div>
         <div class="info-area" id="test">
@@ -39,13 +53,13 @@
               <div class="subtitle">Cuantas ordenes?</div>
               <div class="time">4</div>
             </div>
-                        <!-- start of contador dentro del song info -->
-                        <div class="counter_container">
-                          <button id="subtract_A">-</button>
-                          <span id="output_A">0</span>
-                          <button id="add_A">+</button>
-                        </div>
-                        <!-- end of contador dentro del song info -->
+            <!-- start of contador dentro del song info -->
+            <div class="counter_container">
+              <button id="subtract_A">-</button>
+              <span id="output_A">0</span>
+              <button id="add_A">+</button>
+            </div>
+            <!-- end of contador dentro del song info -->
           </label>
           <label class="song-info" id="song-info-2">
             <div class="title">Pedidos de acompañamientos (B)</div>
@@ -53,13 +67,13 @@
               <div class="subtitle">Cuantas ordenes?</div>
               <div class="time">1</div>
             </div>
-                        <!-- start of contador dentro del song info -->
-                        <div class="counter_container">
-                          <button id="subtract_B">-</button>
-                          <span id="output_B">0</span>
-                          <button id="add_B">+</button>
-                        </div>
-                        <!-- end of contador dentro del song info -->
+            <!-- start of contador dentro del song info -->
+            <div class="counter_container">
+              <button id="subtract_B">-</button>
+              <span id="output_B">0</span>
+              <button id="add_B">+</button>
+            </div>
+            <!-- end of contador dentro del song info -->
           </label>
           <label class="song-info" id="song-info-3">
             <div class="title">Pedidos de licuados o jugos (C)</div>
@@ -67,13 +81,27 @@
               <div class="subtitle">Cuantas ordenes?</div>
               <div class="time">2</div>
             </div>
-                        <!-- start of contador dentro del song info -->
-                        <div class="counter_container">
-                          <button id="subtract_C">-</button>
-                          <span id="output_C">0</span>
-                          <button id="add_C">+</button>
-                        </div>
-                        <!-- end of contador dentro del song info -->
+            <!-- start of contador dentro del song info -->
+            <div class="counter_container">
+              <button id="subtract_C">-</button>
+              <span id="output_C">0</span>
+              <button id="add_C">+</button>
+            </div>
+            <!-- end of contador dentro del song info -->
+          </label>
+          <label class="song-info" id="song-info-4">
+            <div class="title">Insumos</div>
+            <div class="sub-line">
+              <div class="subtitle">Cuanto en stock?</div>
+              <div class="time">10</div>
+            </div>
+            <!-- start of contador dentro del song info -->
+            <div class="counter_container">
+              <button id="subtract_D">-</button>
+              <span id="output_D">0</span>
+              <button id="add_D">+</button>
+            </div>
+            <!-- end of contador dentro del song info -->
           </label>
 
         </div>
@@ -82,10 +110,10 @@
         <span class="progress"></span>
       </div>
     </div>
-  </div>    
+  </div>
 
-<!-- primer intento de entrada de valores calculados -->
-<!--
+  <!-- primer intento de entrada de valores calculados -->
+  <!--
 <table class="calculator" >
     <tr>
         <td style="color:#ffffff">Maquina A 1:2</td>
@@ -116,8 +144,8 @@
 </table>
 -->
 
-<script type="text/javascript" src="script.js"></script>
+  <script type="text/javascript" src="script.js"></script>
 
 </body>
-</html>
 
+</html>

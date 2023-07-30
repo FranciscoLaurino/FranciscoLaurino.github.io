@@ -158,6 +158,12 @@ img {
   object-fit: cover;
 }
 
+#item-1:checked ~ .cards #song-4, #item-2:checked ~ .cards #song-3, #item-3:checked ~ .cards #song-1 {
+  transform: translatex(40%) scale(.8);
+  opacity: .4;
+  z-index: 0;
+}
+
 #item-1:checked ~ .cards #song-3, #item-2:checked ~ .cards #song-1, #item-3:checked ~ .cards #song-2 {
   transform: translatex(-40%) scale(.8);
   opacity: .4;
@@ -174,6 +180,7 @@ img {
   transform: translatex(0) scale(1);
   opacity: 1;
   z-index: 1;
+  
   
   img {
     box-shadow: 0px 0px 5px 0px rgba(81, 81, 81, 0.47);
@@ -193,7 +200,7 @@ img {
   display: flex;
   align-items: center;
   margin-bottom: 12px;
-  height: 36px;
+  height: 24px;
   overflow: hidden;
 }
 
@@ -207,7 +214,7 @@ img {
 .song-info .title {
   color: #403d40;
   font-size: 14px;
-  line-height: 24px;
+  line-height: 16px;
 }
 
 .sub-line {
@@ -218,7 +225,7 @@ img {
 
 .subtitle, .time {
   font-size: 12px;
-  line-height: 24px;
+  line-height: 16px;
   color: #c6c5c6;
 }
 
