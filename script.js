@@ -17,29 +17,80 @@ function calculate() {
 }
 
 //This is for the counter 
+/* Original Counter
 let add = document.querySelector("#add");
 let subract = document.querySelector("#subtract");
 
 add.addEventListener("click", function () {
   let output = document.querySelector("#output");
   let result = Number(output.innerText) + 1;
-/*
+
   if (result > 10) {
     result = 0;
   }
-*/
+  
   output.innerText = result;
 });
+*/
 
-subract.addEventListener("click", function () {
-  let output = document.querySelector("#output");
-  let result = Number(output.innerText) - 1;
+let add = document.querySelector("#add");
+let subract = document.querySelector("#subtract");
 
-  if (result < 0) {
-    result = 0;
+add.addEventListener("click", function () {
+
+  var id = item.attr("id");
+
+  if(id == 'add_A')
+  {
+    let output = document.querySelector("#output_A");
+    let result = Number(output.innerText) + 1;
+    output.innerText = result;
   }
+  if(id == 'add_B')
+  {
+    let output = document.querySelector("#output_B");
+    let result = Number(output.innerText) + 1;
+    output.innerText = result;
+  }
+  if(id == 'add_C')
+  {
+    let output = document.querySelector("#output_C");
+    let result = Number(output.innerText) + 1;
+    output.innerText = result;
+  }
+});
+subract.addEventListener("click", function () {
 
-  output.innerText = result;
+  var id = item.attr("id");
+
+  if(id == 'subtract_A')
+  {
+    let output = document.querySelector("#output_A");
+    let result = Number(output.innerText) - 1;
+    if (result < 10) {
+      result = 0;
+    }
+    output.innerText = result;
+  }
+  if(id == 'subtract_B')
+  {
+    let output = document.querySelector("#output_B");
+    let result = Number(output.innerText) - 1;
+    if (result < 10) {
+      result = 0;
+    }
+    output.innerText = result;
+  }
+  if(id == 'subtract_C')
+  {
+    let output = document.querySelector("#output_C");
+    let result = Number(output.innerText) - 1;
+    if (result < 10) {
+      result = 0;
+    }
+    output.innerText = result;
+  }
+  
 });
 
 // This function display values & calculate orders
