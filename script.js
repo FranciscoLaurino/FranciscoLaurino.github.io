@@ -65,3 +65,8 @@ function displayPedidoC(value) {
 function calculateOrders() {
     //pensar como validar los insumos vs los pedidos
 }
+
+//para el carousel 
+$('input').on('change', function() {
+  $('body').toggleClass('blue');
+});
