@@ -11,37 +11,37 @@
 
 <body>
     <div class="container">
-        <h1>Pedidos A: <span id="counterA">0</span></h1>
+        <h2>Pedidos A: <span id="counterA">0</span></h2>
         <h3>Maquina A: <span id="nivelA">1</span> $<span id="priceA"></span></h3>
 
         <div class="btn-group">
-            <button onclick="increment('A')">+</button>
             <button onclick="decrement('A')">-</button>
             <button onclick="upgrade('A')">🔼</button>
+            <button onclick="increment('A')">+</button>
         </div>
 
-        <h1>Pedidos B: <span id="counterB">0</span></h1>
+        <h2>Pedidos B: <span id="counterB">0</span></h2>
         <h3>Maquina B: <span id="nivelB">1</span> $<span id="priceB"></span></h3>
         <div class="btn-group">
-            <button onclick="increment('B')">+</button>
             <button onclick="decrement('B')">-</button>
             <button onclick="upgrade('B')">🔼</button>
+            <button onclick="increment('B')">+</button>
         </div>
 
-        <h1>Pedidos C: <span id="counterC">0</span></h1>
-        <h3>Maquina A: <span id="nivelC">1</span> $<span id="priceC"></span></h3>
+        <h2>Pedidos C: <span id="counterC">0</span></h2>
+        <h3>Maquina C: <span id="nivelC">1</span> $<span id="priceC"></span></h3>
         <div class="btn-group">
-            <button onclick="increment('C')">+</button>
             <button onclick="decrement('C')">-</button>
             <button onclick="upgrade('C')">🔼</button>
+            <button onclick="increment('C')">+</button>
         </div>
 
         <h1>Insumos: <span id="counterD">0</span></h1>
         <h3>Stock nivel: <span id="nivelD">1</span> Maximo: <span id="maxStock"></span></h3>
         <div class="btn-group">
-            <button onclick="increment('D')">+</button>
             <button onclick="decrement('D')">-</button>
             <button onclick="upgrade('D')">🔼</button>
+            <button onclick="increment('D')">+</button>
         </div>
 
         <button onclick="calculate()">Calcular</button>
@@ -64,7 +64,9 @@
 
         function upgrade(counterName) {
             var nivelMaquinaElement = document.getElementById('nivel' + counterName);
+            var precioMaquinaElement = document.getElementById('price' + counterName);
             var currentValue = parseInt(nivelMaquinaElement.innerText);
+           
             var newLevel = currentValue + 1;
 
             var confirmUpgrade = confirm("Do you want to upgrade the machine to level " + newLevel + "for $100?");
@@ -72,6 +74,7 @@
             if (confirmUpgrade) {
 
                 nivelMaquinaElement.innerText = newLevel;
+                precioMaquinaElement.innerText = machine+counterName.levels[newLevel].price;//no se si se puede concatenar
                 // Your code to perform the actual upgrade goes here
 
             }
@@ -112,11 +115,19 @@
             }
         };
 
-        // Access the HTML element using JavaScript
-        const priceAElement = document.getElementById('priceA');
-        // Set the content of the HTML element to the value from machine.levels[1].name
-        const nA = document.getElementById('nivelA').innerText;
+        //Display selling price at the start
+        let priceAElement = document.getElementById('priceA');
+        let nA = document.getElementById('nivelA').innerText;
         priceAElement.textContent = machineA.levels[nA].price;
+
+        let priceBElement = document.getElementById('priceB');
+        let nB = document.getElementById('nivelB').innerText;
+        priceBElement.textContent = machineB.levels[nB].price;
+
+        let priceCElement = document.getElementById('priceC');
+        let nC = document.getElementById('nivelC').innerText;
+        priceCElement.textContent = machineC.levels[nC].price;
+
 
         function calculate() {
             let pedidos_a = parseInt(document.getElementById('counterA').innerText);
