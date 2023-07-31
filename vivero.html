@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mobile Web App</title>
+  <link rel="stylesheet" href="styles2.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Pedidos A: <span id="counterA">0</span></h1>
+    <div class="btn-group">
+      <button onclick="increment('A')">+</button>
+      <button onclick="decrement('A')">-</button>
+    </div>
+
+    <h1>Pedidos B: <span id="counterB">0</span></h1>
+    <div class="btn-group">
+      <button onclick="increment('B')">+</button>
+      <button onclick="decrement('B')">-</button>
+    </div>
+
+    <h1>Pedidos C: <span id="counterC">0</span></h1>
+    <div class="btn-group">
+      <button onclick="increment('C')">+</button>
+      <button onclick="decrement('C')">-</button>
+    </div>
+
+    <h1>Insumos: <span id="counterD">0</span></h1>
+    <div class="btn-group">
+      <button onclick="increment('D')">+</button>
+      <button onclick="decrement('D')">-</button>
+    </div>
+
+    <button onclick="calculate()">Calcular</button>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>

@@ -73,8 +73,8 @@
                 let ventas = a * 5 + b * 2 + c * 4; //$5 x a, $2 x b, $4 x c
                 let insumos_restantes = d - a1 - b1 - c1; 
 
-                alert('Resultado final: $' + ventas + ' en ventas y te quedan' + insumos_restantes + 'en insumos');
-                document.getElementById('counterD').value = insumos_restantes;
+                alert('Ventas por: $' + ventas + ' y te quedan ' + insumos_restantes + ' en insumos');
+                document.getElementById('counterD').innerText = insumos_restantes;
                 // Hide the popup after calculation
                 var popup = document.getElementById('popup');
                 popup.style.display = 'none';
