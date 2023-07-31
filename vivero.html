@@ -10,7 +10,8 @@
 <body>
   <div class="container">
     <h1>Pedidos A: <span id="counterA">0</span></h1>
-    <h2>Maquina A: <span id="nivelA">1</span> machineA.levels[lvl_a].output 1:2 $5</h2>
+    <h2>Maquina A: <span id="nivelA">1</span>  1:2 $5</h2>
+    <h3>Maquina A: <span id="nivelA">1</span>$<span id="priceAElement"></span></h1>
     <div id="machineList"></div>
     <div class="btn-group">
       <button onclick="increment('A')">+</button>
@@ -100,14 +101,12 @@ const machineC = {
   }
 };
 
-const machineListElement = document.getElementById('machineList');
+    // Access the HTML element using JavaScript
+    const priceAElement = document.getElementById('price');
 
-// Create and append HTML elements for each machine
-machines.forEach(machine => {
-  const machineDiv = document.createElement('div');
-  machineDiv.innerHTML = `<h1>Machine Level ${machine.level}: ${machine.name}</h1><p>Price: $${machine.price}</p>`;
-  machineListElement.appendChild(machineDiv);
-});
+    // Set the content of the HTML element to the value from machine.levels[1].name
+    const nA = document.getElementById('nivelA').innerText;
+    priceAElement.textContent = machineA.levels[nA].price;
 
     function calculate() {
         let pedidos_a = parseInt(document.getElementById('counterA').innerText);
