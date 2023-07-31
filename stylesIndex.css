@@ -1,7 +1,7 @@
 body {
     margin: 0;
     padding: 0;
-    font-family: Arial, sans-serif;
+    font-family: 'Montserrat', Arial, sans-serif;
     background-color: #f0f0f0;
   }
   
@@ -19,8 +19,8 @@ body {
   .dropbtn {
     background-color: #007BFF;
     color: white;
-    padding: 20px 40px;
-    font-size: 24px;
+    padding: 25px 45px; /* Increase padding for a bigger button */
+    font-size: 28px; /* Increase font size */
     border: none;
     border-radius: 50px; /* Make it more round */
     cursor: pointer;
