@@ -10,27 +10,32 @@
 <body>
   <div class="container">
     <h1>Pedidos A: <span id="counterA">0</span></h1>
+    <h2>Maquina A: <span id="nivelA">1</span> 1:2 $5</h2>
     <div class="btn-group">
       <button onclick="increment('A')">+</button>
       <button onclick="decrement('A')">-</button>
+      <button onclick="upgrade('A')">🔼</button>
     </div>
 
     <h1>Pedidos B: <span id="counterB">0</span></h1>
     <div class="btn-group">
       <button onclick="increment('B')">+</button>
       <button onclick="decrement('B')">-</button>
+      <button onclick="upgrade('B')">🔼</button>
     </div>
 
     <h1>Pedidos C: <span id="counterC">0</span></h1>
     <div class="btn-group">
       <button onclick="increment('C')">+</button>
       <button onclick="decrement('C')">-</button>
+      <button onclick="upgrade('C')">🔼</button>
     </div>
 
     <h1>Insumos: <span id="counterD">0</span></h1>
     <div class="btn-group">
       <button onclick="increment('D')">+</button>
       <button onclick="decrement('D')">-</button>
+      <button onclick="upgrade('D')">🔼</button>
     </div>
 
     <button onclick="calculate()">Calcular</button>
@@ -49,6 +54,19 @@
         if (currentValue > 0) {
             counterElement.innerText = currentValue - 1;
         }
+    }
+
+    function upgrade(counterName) {
+      var counterElement = document.getElementById('counter');
+      var currentValue = parseInt(counterElement.innerText);
+      var newLevel = currentValue + 1;
+
+      var confirmUpgrade = confirm("Do you want to upgrade the machine to level " + newLevel + "?");
+
+      if (confirmUpgrade) {
+        counterElement.innerText = newLevel;
+        // Your code to perform the actual upgrade goes here
+      }
     }
 
     // Popup Calculation
@@ -70,14 +88,14 @@
             let ventas = a * 5 + b * 2 + c * 4; //$5 x a, $2 x b, $4 x c
             let insumos_restantes = d - a1 - b1 - c1; 
 
-            alert('Ventas por: $' + ventas + ' y te quedan ' + insumos_restantes + ' en insumos');
+            alert('Ventas por: $' + ventas + ' y te quedan ' + insumos_restantes + ' en insumos.');
             document.getElementById('counterD').innerText = insumos_restantes;
             // Hide the popup after calculation
             var popup = document.getElementById('popup');
             popup.style.display = 'none';
         } else 
         {
-            alert('no te alcanzan los insumos'+ d + 'pedidos: ' + a1 + ' , ' + b1 + ' , ' + c1);
+            alert('no te alcanzan los insumos '+ d + '. Pedidos: ' + a1 + ' , ' + b1 + ' , ' + c1);
             var popup = document.getElementById('popup');
             popup.style.display = 'none';
         }
