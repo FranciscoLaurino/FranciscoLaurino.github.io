@@ -36,13 +36,7 @@
     <button onclick="increment('D')">+</button>
     <button onclick="decrement('D')">-</button>
 
-    <button onclick="showPopup()">Open Popup</button>
-
-    <!-- Popup -->
-    <div id="popup" class="popup">
-        <h2>Beep Boop Bop</h2>
-        <button onclick="calculate()">Calculate</button>
-    </div>
+    <button onclick="calculate()">Calcular</button>
 
     <script>
         // Individual Counters
@@ -67,17 +61,17 @@
         }
 
         function calculate() {
-            var a = parseInt(document.getElementById('counterA').value);
-            var b = parseInt(document.getElementById('counterB').value);
-            var c = parseInt(document.getElementById('counterC').value);
-            var d = document.getElementById('counterD').value;
+            let a = parseInt(document.getElementById('counterA').value);
+            let b = parseInt(document.getElementById('counterB').value);
+            let c = parseInt(document.getElementById('counterC').value);
+            let d = document.getElementById('counterD').value;
 
-            var a1 = a / 2 * 1 // 1 insumo, 2 outputs
-            var b1 = b / 1 * 1 // 1 insumo, 1 outputs
-            var c1 = c / 1 * 2 // 2 insumos, 1 output
+            let a1 = a / 2 * 1 // 1 insumo, 2 outputs
+            let b1 = b / 1 * 1 // 1 insumo, 1 outputs
+            let c1 = c / 1 * 2 // 2 insumos, 1 output
             if (d > a1 + b1 + c1) {
-                var ventas = a * 5 + b * 2 + c * 4; //$5 x a, $2 x b, $4 x c
-                var insumos_restantes = d - a1 - b1 - c1; 
+                let ventas = a * 5 + b * 2 + c * 4; //$5 x a, $2 x b, $4 x c
+                let insumos_restantes = d - a1 - b1 - c1; 
 
                 alert('Resultado final: $' + ventas + ' en ventas y te quedan' + insumos_restantes + 'en insumos');
                 document.getElementById('counterD').value = insumos_restantes;
