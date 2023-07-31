@@ -10,7 +10,8 @@
 <body>
   <div class="container">
     <h1>Pedidos A: <span id="counterA">0</span></h1>
-    <h2>Maquina A: <span id="nivelA">1</span> 1:2 $5</h2>
+    <h2>Maquina A: <span id="nivelA">1</span> machineA.levels[lvl_a].output 1:2 $5</h2>
+    <div id="machineList"></div>
     <div class="btn-group">
       <button onclick="increment('A')">+</button>
       <button onclick="decrement('A')">-</button>
@@ -57,15 +58,17 @@
     }
 
     function upgrade(counterName) {
-      var counterElement = document.getElementById('counter');
-      var currentValue = parseInt(counterElement.innerText);
+      var nivelMaquinaElement  = document.getElementById('nivel' + counterName);
+      var currentValue = parseInt(nivelMaquinaElement.innerText);
       var newLevel = currentValue + 1;
 
-      var confirmUpgrade = confirm("Do you want to upgrade the machine to level " + newLevel + "?");
+      var confirmUpgrade = confirm("Do you want to upgrade the machine to level " + newLevel + "for $100?");
 
       if (confirmUpgrade) {
+        
         counterElement.innerText = newLevel;
         // Your code to perform the actual upgrade goes here
+
       }
     }
 
@@ -75,18 +78,53 @@
         popup.style.display = 'block';
     }
 
-    function calculate() {
-        let a = parseInt(document.getElementById('counterA').innerText);
-        let b = parseInt(document.getElementById('counterB').innerText);
-        let c = parseInt(document.getElementById('counterC').innerText);
-        let d = parseInt(document.getElementById('counterD').innerText);
+const machineA = {
+  levels: {
+    1: { price: 5, name: "Basic", input: 1, output: 2 },
+    2: { price: 10, name: "Intermediate", input: 1, output: 3 },
+    3: { price: 20, name: "Advanced", input: 1, output: 4 }
+  }
+};
+const machineB = {
+  levels: {
+    1: { price: 2, name: "Basic", input: 1, output: 1 },
+    2: { price: 3, name: "Intermediate", input: 1, output: 2 },
+    3: { price: 5, name: "Advanced", input: 1, output: 3 }
+  }
+};
+const machineC = {
+  levels: {
+    1: { price: 4, name: "Basic", input: 2, output: 1 },
+    2: { price: 8, name: "Intermediate", input: 2, output: 2 },
+    3: { price: 15, name: "Advanced", input: 2, output: 3 }
+  }
+};
 
-        let a1 = parseInt(a / 2 * 1); // 1 insumo, 2 outputs
-        let b1 = parseInt(b / 1 * 1); // 1 insumo, 1 outputs
-        let c1 = parseInt(c / 1 * 2); // 2 insumos, 1 output
-        if (d > a1 + b1 + c1) {
-            let ventas = a * 5 + b * 2 + c * 4; //$5 x a, $2 x b, $4 x c
-            let insumos_restantes = d - a1 - b1 - c1; 
+const machineListElement = document.getElementById('machineList');
+
+// Create and append HTML elements for each machine
+machines.forEach(machine => {
+  const machineDiv = document.createElement('div');
+  machineDiv.innerHTML = `<h1>Machine Level ${machine.level}: ${machine.name}</h1><p>Price: $${machine.price}</p>`;
+  machineListElement.appendChild(machineDiv);
+});
+
+    function calculate() {
+        let pedidos_a = parseInt(document.getElementById('counterA').innerText);
+        let pedidos_b = parseInt(document.getElementById('counterB').innerText);
+        let pedidos_c = parseInt(document.getElementById('counterC').innerText);
+        let stock = parseInt(document.getElementById('counterD').innerText);
+        let lvl_a = parseInt(document.getElementById('nivelA').innerText);
+        let lvl_b = parseInt(document.getElementById('nivelB').innerText);
+        let lvl_c = parseInt(document.getElementById('nivelC').innerText);
+        let lvl_d = parseInt(document.getElementById('nivelD').innerText);
+
+        let a1 = parseInt(pedidos_a / machineA.levels[lvl_a].output * machineA.levels[lvl_a].input); // 1 insumo, 2 outputs
+        let b1 = parseInt(pedidos_b / machineB.levels[lvl_b].output * machineB.levels[lvl_b].input); // 1 insumo, 1 outputs
+        let c1 = parseInt(pedidos_c / machineC.levels[lvl_c].output * machineC.levels[lvl_c].input); // 2 insumos, 1 output
+        if (stock > a1 + b1 + c1) {
+            let ventas = pedidos_a * machineA.levels[lvl_a].price + pedidos_b * machineB.levels[lvl_b].price + pedidos_c * machineC.levels[lvl_c].price; //$5 x a, $2 x b, $4 x c
+            let insumos_restantes = stock - a1 - b1 - c1; 
 
             alert('Ventas por: $' + ventas + ' y te quedan ' + insumos_restantes + ' en insumos.');
             document.getElementById('counterD').innerText = insumos_restantes;
@@ -95,7 +133,7 @@
             popup.style.display = 'none';
         } else 
         {
-            alert('no te alcanzan los insumos '+ d + '. Pedidos: ' + a1 + ' , ' + b1 + ' , ' + c1);
+            alert('no te alcanzan los insumos '+ stock + '. Pedidos: ' + a1 + ' , ' + b1 + ' , ' + c1);
             var popup = document.getElementById('popup');
             popup.style.display = 'none';
         }
