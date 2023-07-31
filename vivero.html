@@ -3,8 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Mobile Web App</title>
-  <link rel="stylesheet" href="styles2.css">
+    <title>Vivero</title>
+    <h2>Buenas ventas en verano!</h2>
+  <link rel="stylesheet" href="stylesVivero.css">
 </head>
 <body>
   <div class="container">
@@ -34,6 +35,54 @@
 
     <button onclick="calculate()">Calcular</button>
   </div>
-  <script src="script.js"></script>
+  <script>
+    // Individual Counters
+    function increment(counterName) {
+        var counterElement = document.getElementById('counter' + counterName);
+        var currentValue = parseInt(counterElement.innerText);
+        counterElement.innerText = currentValue + 1;
+    }
+
+    function decrement(counterName) {
+        var counterElement = document.getElementById('counter' + counterName);
+        var currentValue = parseInt(counterElement.innerText);
+        if (currentValue > 0) {
+            counterElement.innerText = currentValue - 1;
+        }
+    }
+
+    // Popup Calculation
+    function showPopup() {
+        var popup = document.getElementById('popup');
+        popup.style.display = 'block';
+    }
+
+    function calculate() {
+        let a = parseInt(document.getElementById('counterA').innerText);
+        let b = parseInt(document.getElementById('counterB').innerText);
+        let c = parseInt(document.getElementById('counterC').innerText);
+        let d = parseInt(document.getElementById('counterD').innerText);
+
+        let a1 = parseInt(a / 2 * 1); // 1 insumo, 2 outputs
+        let b1 = parseInt(b / 1 * 1); // 1 insumo, 1 outputs
+        let c1 = parseInt(c / 1 * 2); // 2 insumos, 1 output
+        if (d > a1 + b1 + c1) {
+            let ventas = a * 5 + b * 2 + c * 4; //$5 x a, $2 x b, $4 x c
+            let insumos_restantes = d - a1 - b1 - c1; 
+
+            alert('Ventas por: $' + ventas + ' y te quedan ' + insumos_restantes + ' en insumos');
+            document.getElementById('counterD').innerText = insumos_restantes;
+            // Hide the popup after calculation
+            var popup = document.getElementById('popup');
+            popup.style.display = 'none';
+        } else 
+        {
+            alert('no te alcanzan los insumos'+ d + 'pedidos: ' + a1 + ' , ' + b1 + ' , ' + c1);
+            var popup = document.getElementById('popup');
+            popup.style.display = 'none';
+        }
+
+    }
+</script>
 </body>
 </html>

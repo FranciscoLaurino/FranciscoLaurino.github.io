@@ -2,7 +2,7 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f0f0f0;
+    background-color: #2ab534;
   }
   
   .container {
@@ -24,7 +24,7 @@ body {
   button {
     padding: 10px 20px;
     font-size: 16px;
-    background-color: #007BFF;
+    background-color: #ff6f00;
     color: #fff;
     border: none;
     border-radius: 5px;
@@ -33,11 +33,11 @@ body {
   }
   
   button:hover {
-    background-color: #0056b3;
+    background-color: #ff6f009d;
   }
   
   button:active {
-    background-color: #003980;
+    background-color: #ff6f009d;
   }
   
   button:focus {
