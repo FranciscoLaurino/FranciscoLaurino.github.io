@@ -4,44 +4,39 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hamburgueseria</title>
-    <h3>Hamburgueseria: Buenas ventas en verano!</h3>
     <link rel="stylesheet" href="stylesHamburgueseria.css">
 </head>
 <body>
     <div class="container">
-        <h2>Pedidos A: <span id="counterA">0</span></h2>
+        <h3>Hamburgueseria: Buenas ventas en verano!</h3>
+        <h3>Pedidos A: <span id="counterA">0</span></h3>
         <h4>Maquina A: <span id="nivelA">1</span> $<span id="priceA"></span></h4>
-
         <div class="btn-group">
             <button onclick="decrement('A')">-</button>
             <button onclick="upgrade('A')">🔼</button>
             <button onclick="increment('A')">+</button>
         </div>
-
-        <h2>Pedidos B: <span id="counterB">0</span></h2>
+        <h3>Pedidos B: <span id="counterB">0</span></h3>
         <h4>Maquina B: <span id="nivelB">1</span> $<span id="priceB"></span></h4>
         <div class="btn-group">
             <button onclick="decrement('B')">-</button>
             <button onclick="upgrade('B')">🔼</button>
             <button onclick="increment('B')">+</button>
         </div>
-
-        <h2>Pedidos C: <span id="counterC">0</span></h2>
+        <h3>Pedidos C: <span id="counterC">0</span></h3>
         <h4>Maquina C: <span id="nivelC">1</span> $<span id="priceC"></span></h4>
         <div class="btn-group">
             <button onclick="decrement('C')">-</button>
             <button onclick="upgrade('C')">🔼</button>
             <button onclick="increment('C')">+</button>
         </div>
-
-        <h2>Insumos: <span id="counterD">0</span></h2>
+        <h3>Insumos: <span id="counterD">0</span></h3>
         <h4>Stock nivel: <span id="nivelD">1</span> Maximo: <span id="maxStock"></span></h4>
         <div class="btn-group">
             <button onclick="decrement('D')">-</button>
             <button onclick="upgrade('D')">🔼</button>
             <button onclick="increment('D')">+</button>
         </div>
-
         <button onclick="calculate()">Calcular</button>
     </div>
     <script>
