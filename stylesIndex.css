@@ -19,10 +19,10 @@ body {
   .dropbtn {
     background-color: #007BFF;
     color: white;
-    padding: 15px 30px;
+    padding: 20px 40px;
     font-size: 24px;
     border: none;
-    border-radius: 5px;
+    border-radius: 50px; /* Make it more round */
     cursor: pointer;
     transition: background-color 0.3s;
   }
