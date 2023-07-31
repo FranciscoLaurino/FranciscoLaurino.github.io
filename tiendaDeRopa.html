@@ -62,13 +62,13 @@
 
         function calculate() {
             let a = parseInt(document.getElementById('counterA').innerText);
-            let b = parseInt(document.getElementById('counterB').value);
-            let c = parseInt(document.getElementById('counterC').value);
-            let d = document.getElementById('counterD').value;
+            let b = parseInt(document.getElementById('counterB').innerText);
+            let c = parseInt(document.getElementById('counterC').innerText);
+            let d = parseInt(document.getElementById('counterD').innerText);
 
-            let a1 = a / 2 * 1 // 1 insumo, 2 outputs
-            let b1 = b / 1 * 1 // 1 insumo, 1 outputs
-            let c1 = c / 1 * 2 // 2 insumos, 1 output
+            let a1 = parseInt(a / 2 * 1); // 1 insumo, 2 outputs
+            let b1 = parseInt(b / 1 * 1); // 1 insumo, 1 outputs
+            let c1 = parseInt(c / 1 * 2); // 2 insumos, 1 output
             if (d > a1 + b1 + c1) {
                 let ventas = a * 5 + b * 2 + c * 4; //$5 x a, $2 x b, $4 x c
                 let insumos_restantes = d - a1 - b1 - c1; 
