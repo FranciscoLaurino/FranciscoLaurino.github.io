@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-    <title>Popup Calculation</title>
+    <title>Tienda de Ropa</title>
+    <h2>Ventas dobles en navidad y otras ocasiones</h2>
     <style>
         /* Styling for the popup */
         .popup {
@@ -16,12 +18,29 @@
         }
     </style>
 </head>
+
 <body>
+    <h1>Pedidos A: <span id="counterA">0</span></h1>
+    <button onclick="increment('A')">+</button>
+    <button onclick="decrement('A')">-</button>
+
+    <h1>Pedidos B: <span id="counterB">0</span></h1>
+    <button onclick="increment('B')">+</button>
+    <button onclick="decrement('B')">-</button>
+
+    <h1>Pedidos C: <span id="counterC">0</span></h1>
+    <button onclick="increment('C')">+</button>
+    <button onclick="decrement('C')">-</button>
+
+    <h1>Insumos: <span id="counterD">0</span></h1>
+    <button onclick="increment('C')">+</button>
+    <button onclick="decrement('C')">-</button>
+
     <button onclick="showPopup()">Open Popup</button>
 
     <!-- Popup -->
     <div id="popup" class="popup">
-        <h2>Enter Values for Calculation</h2>
+        <h2>Beep Boop Bop</h2>
         <label for="valueA">Value A:</label>
         <input type="number" id="valueA" required><br>
 
@@ -38,27 +57,54 @@
     </div>
 
     <script>
-        // Function to show the popup
+        // Individual Counters
+        function increment(counterName) {
+            var counterElement = document.getElementById('counter' + counterName);
+            var currentValue = parseInt(counterElement.innerText);
+            counterElement.innerText = currentValue + 1;
+        }
+
+        function decrement(counterName) {
+            var counterElement = document.getElementById('counter' + counterName);
+            var currentValue = parseInt(counterElement.innerText);
+            if (currentValue > 0) {
+                counterElement.innerText = currentValue - 1;
+            }
+        }
+
+        // Popup Calculation
         function showPopup() {
             var popup = document.getElementById('popup');
             popup.style.display = 'block';
         }
 
-        // Function to calculate and display the result
         function calculate() {
-            var a = parseFloat(document.getElementById('valueA').value);
-            var b = parseFloat(document.getElementById('valueB').value);
-            var c = parseFloat(document.getElementById('valueC').value);
-            var d = parseFloat(document.getElementById('valueD').value);
+            var a = parseFloat(document.getElementById('counterA').value);
+            var b = parseFloat(document.getElementById('counterB').value);
+            var c = parseFloat(document.getElementById('counterC').value);
+            var d = parseFloat(document.getElementById('counterD').value);
 
-            var result = a + b - c * d; // Replace this with your desired calculation
+            var a1 = a / 2 * 1 // 1 insumo, 2 outputs
+            var b1 = b / 1 * 1 // 1 insumo, 1 outputs
+            var c1 = c / 1 * 2 // 2 insumos, 1 output
+            if (d > a1 + b1 + c1) {
+                var ventas = a * 5 + b * 2 + c * 4; //$5 x a, $2 x b, $4 x c
+                var insumos_restantes = d - a1 - b1 - c1; // Replace this with your desired calculation
 
-            alert('The result is: ' + result);
+                alert('Resultado final: $' + ventas + ' en ventas y te quedan' + insumos_restantes + 'en insumos');
+                document.getElementById('counterD').value = insumos_restantes;
+                // Hide the popup after calculation
+                var popup = document.getElementById('popup');
+                popup.style.display = 'none';
+            } else 
+            {
+                alert('no te alcanzan los insumos');
+                var popup = document.getElementById('popup');
+                popup.style.display = 'none';
+            }
 
-            // Hide the popup after calculation
-            var popup = document.getElementById('popup');
-            popup.style.display = 'none';
         }
     </script>
 </body>
+
 </html>
