@@ -70,14 +70,14 @@
             var a = parseInt(document.getElementById('counterA').value);
             var b = parseInt(document.getElementById('counterB').value);
             var c = parseInt(document.getElementById('counterC').value);
-            var d = parseInt(document.getElementById('counterD').value);
+            var d = document.getElementById('counterD').value;
 
             var a1 = a / 2 * 1 // 1 insumo, 2 outputs
             var b1 = b / 1 * 1 // 1 insumo, 1 outputs
             var c1 = c / 1 * 2 // 2 insumos, 1 output
             if (d > a1 + b1 + c1) {
                 var ventas = a * 5 + b * 2 + c * 4; //$5 x a, $2 x b, $4 x c
-                var insumos_restantes = d - a1 - b1 - c1; // Replace this with your desired calculation
+                var insumos_restantes = d - a1 - b1 - c1; 
 
                 alert('Resultado final: $' + ventas + ' en ventas y te quedan' + insumos_restantes + 'en insumos');
                 document.getElementById('counterD').value = insumos_restantes;
@@ -86,8 +86,7 @@
                 popup.style.display = 'none';
             } else 
             {
-                alert('no te alcanzan los insumos');
-                alert(d + 'pedidos: ' + a1 + ' , ' + b1 + ' , ' + c1);
+                alert('no te alcanzan los insumos'+ d + 'pedidos: ' + a1 + ' , ' + b1 + ' , ' + c1);
                 var popup = document.getElementById('popup');
                 popup.style.display = 'none';
             }
