@@ -1,3 +1,4 @@
+/*
 // This function clear all the values
 function clearScreen() {
     document.getElementById("result").value = "";
@@ -32,7 +33,7 @@ add.addEventListener("click", function () {
   output.innerText = result;
 });
 */
-
+/*
 let add = document.querySelector("add_A");
 let subract = document.querySelector("subtract_A");
 
@@ -136,3 +137,4 @@ function decrement(counterName) {
       counterElement.innerText = currentValue - 1;
   }
 }
+*/

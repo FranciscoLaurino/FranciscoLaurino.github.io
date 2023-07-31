@@ -1,18 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vivero</title>
-    <h2>Buenas ventas en verano!</h2>
+    <h3>Vivero: Buenas ventas en verano!</h3>
     <link rel="stylesheet" href="stylesVivero.css">
 </head>
-
 <body>
     <div class="container">
         <h2>Pedidos A: <span id="counterA">0</span></h2>
-        <h3>Maquina A: <span id="nivelA">1</span> $<span id="priceA"></span></h3>
+        <h4>Maquina A: <span id="nivelA">1</span> $<span id="priceA"></span></h4>
 
         <div class="btn-group">
             <button onclick="decrement('A')">-</button>
@@ -21,7 +19,7 @@
         </div>
 
         <h2>Pedidos B: <span id="counterB">0</span></h2>
-        <h3>Maquina B: <span id="nivelB">1</span> $<span id="priceB"></span></h3>
+        <h4>Maquina B: <span id="nivelB">1</span> $<span id="priceB"></span></h4>
         <div class="btn-group">
             <button onclick="decrement('B')">-</button>
             <button onclick="upgrade('B')">🔼</button>
@@ -29,15 +27,15 @@
         </div>
 
         <h2>Pedidos C: <span id="counterC">0</span></h2>
-        <h3>Maquina C: <span id="nivelC">1</span> $<span id="priceC"></span></h3>
+        <h4>Maquina C: <span id="nivelC">1</span> $<span id="priceC"></span></h4>
         <div class="btn-group">
             <button onclick="decrement('C')">-</button>
             <button onclick="upgrade('C')">🔼</button>
             <button onclick="increment('C')">+</button>
         </div>
 
-        <h1>Insumos: <span id="counterD">0</span></h1>
-        <h3>Stock nivel: <span id="nivelD">1</span> Maximo: <span id="maxStock"></span></h3>
+        <h2>Insumos: <span id="counterD">0</span></h2>
+        <h4>Stock nivel: <span id="nivelD">1</span> Maximo: <span id="maxStock"></span></h4>
         <div class="btn-group">
             <button onclick="decrement('D')">-</button>
             <button onclick="upgrade('D')">🔼</button>
@@ -139,9 +137,9 @@
             let lvl_c = parseInt(document.getElementById('nivelC').innerText);
             let lvl_d = parseInt(document.getElementById('nivelD').innerText);
 
-            let a1 = parseInt(pedidos_a / machineA.levels[lvl_a].output * machineA.levels[lvl_a].input); // 1 insumo, 2 outputs
-            let b1 = parseInt(pedidos_b / machineB.levels[lvl_b].output * machineB.levels[lvl_b].input); // 1 insumo, 1 outputs
-            let c1 = parseInt(pedidos_c / machineC.levels[lvl_c].output * machineC.levels[lvl_c].input); // 2 insumos, 1 output
+            let a1 = parseInt(Math.ceil(pedidos_a / machineA.levels[lvl_a].output * machineA.levels[lvl_a].input)); // 1 insumo, 2 outputs
+            let b1 = parseInt(Math.ceil(pedidos_b / machineB.levels[lvl_b].output * machineB.levels[lvl_b].input)); // 1 insumo, 1 outputs
+            let c1 = parseInt(Math.ceil(pedidos_c / machineC.levels[lvl_c].output * machineC.levels[lvl_c].input)); // 2 insumos, 1 output
             if (stock > a1 + b1 + c1) {
                 let ventas = pedidos_a * machineA.levels[lvl_a].price + pedidos_b * machineB.levels[lvl_b].price + pedidos_c * machineC.levels[lvl_c].price; //$5 x a, $2 x b, $4 x c
                 let insumos_restantes = stock - a1 - b1 - c1;

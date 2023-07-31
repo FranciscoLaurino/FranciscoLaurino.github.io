@@ -1,23 +1,51 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hamburgueseria</title>
-    <h2>Buenas ventas en verano!</h2>
+    <h3>Hamburgueseria: Buenas ventas en verano!</h3>
+    <link rel="stylesheet" href="stylesHamburgueseria.css">
 </head>
 <body>
-    <h1>Pedidos A: <span id="counterA">0</span></h1>
-    <button onclick="increment('A')">+</button>
-    <button onclick="decrement('A')">-</button>
+    <div class="container">
+        <h2>Pedidos A: <span id="counterA">0</span></h2>
+        <h4>Maquina A: <span id="nivelA">1</span> $<span id="priceA"></span></h4>
 
-    <h1>Pedidos B: <span id="counterB">0</span></h1>
-    <button onclick="increment('B')">+</button>
-    <button onclick="decrement('B')">-</button>
+        <div class="btn-group">
+            <button onclick="decrement('A')">-</button>
+            <button onclick="upgrade('A')">🔼</button>
+            <button onclick="increment('A')">+</button>
+        </div>
 
-    <h1>Pedidos C: <span id="counterC">0</span></h1>
-    <button onclick="increment('C')">+</button>
-    <button onclick="decrement('C')">-</button>
+        <h2>Pedidos B: <span id="counterB">0</span></h2>
+        <h4>Maquina B: <span id="nivelB">1</span> $<span id="priceB"></span></h4>
+        <div class="btn-group">
+            <button onclick="decrement('B')">-</button>
+            <button onclick="upgrade('B')">🔼</button>
+            <button onclick="increment('B')">+</button>
+        </div>
 
+        <h2>Pedidos C: <span id="counterC">0</span></h2>
+        <h4>Maquina C: <span id="nivelC">1</span> $<span id="priceC"></span></h4>
+        <div class="btn-group">
+            <button onclick="decrement('C')">-</button>
+            <button onclick="upgrade('C')">🔼</button>
+            <button onclick="increment('C')">+</button>
+        </div>
+
+        <h2>Insumos: <span id="counterD">0</span></h2>
+        <h4>Stock nivel: <span id="nivelD">1</span> Maximo: <span id="maxStock"></span></h4>
+        <div class="btn-group">
+            <button onclick="decrement('D')">-</button>
+            <button onclick="upgrade('D')">🔼</button>
+            <button onclick="increment('D')">+</button>
+        </div>
+
+        <button onclick="calculate()">Calcular</button>
+    </div>
     <script>
+        // Individual Counters
         function increment(counterName) {
             var counterElement = document.getElementById('counter' + counterName);
             var currentValue = parseInt(counterElement.innerText);
@@ -31,6 +59,104 @@
                 counterElement.innerText = currentValue - 1;
             }
         }
+
+        function upgrade(counterName) {
+            var nivelMaquinaElement = document.getElementById('nivel' + counterName);
+            var precioMaquinaElement = document.getElementById('price' + counterName);
+            var currentValue = parseInt(nivelMaquinaElement.innerText);
+           
+            var newLevel = currentValue + 1;
+
+            var confirmUpgrade = confirm("Do you want to upgrade the machine to level " + newLevel + "for $100?");
+
+            if (confirmUpgrade) {
+
+                nivelMaquinaElement.innerText = newLevel;
+                precioMaquinaElement.innerText = machine+counterName.levels[newLevel].price;//no se si se puede concatenar
+                // Your code to perform the actual upgrade goes here
+
+            }
+        }
+
+        // Popup Calculation
+        function showPopup() {
+            var popup = document.getElementById('popup');
+            popup.style.display = 'block';
+        }
+
+        const machineA = {
+            levels: {
+                1: { price: 5, name: "Basic", input: 1, output: 2 },
+                2: { price: 10, name: "Intermediate", input: 1, output: 3 },
+                3: { price: 20, name: "Advanced", input: 1, output: 4 }
+            }
+        };
+        const machineB = {
+            levels: {
+                1: { price: 2, name: "Basic", input: 1, output: 1 },
+                2: { price: 3, name: "Intermediate", input: 1, output: 2 },
+                3: { price: 5, name: "Advanced", input: 1, output: 3 }
+            }
+        };
+        const machineC = {
+            levels: {
+                1: { price: 4, name: "Basic", input: 2, output: 1 },
+                2: { price: 8, name: "Intermediate", input: 2, output: 2 },
+                3: { price: 15, name: "Advanced", input: 2, output: 3 }
+            }
+        };
+        const insumosD = {
+            levels: {
+                1: { stockMaximo: 50, name: "Basic"},
+                2: { stockMaximo: 100, name: "Intermediate"},
+                3: { stockMaximo: 200, name: "Advanced"}
+            }
+        };
+
+        //Display selling price at the start
+        let priceAElement = document.getElementById('priceA');
+        let nA = document.getElementById('nivelA').innerText;
+        priceAElement.textContent = machineA.levels[nA].price;
+
+        let priceBElement = document.getElementById('priceB');
+        let nB = document.getElementById('nivelB').innerText;
+        priceBElement.textContent = machineB.levels[nB].price;
+
+        let priceCElement = document.getElementById('priceC');
+        let nC = document.getElementById('nivelC').innerText;
+        priceCElement.textContent = machineC.levels[nC].price;
+
+
+        function calculate() {
+            let pedidos_a = parseInt(document.getElementById('counterA').innerText);
+            let pedidos_b = parseInt(document.getElementById('counterB').innerText);
+            let pedidos_c = parseInt(document.getElementById('counterC').innerText);
+            let stock = parseInt(document.getElementById('counterD').innerText);
+            let lvl_a = parseInt(document.getElementById('nivelA').innerText);
+            let lvl_b = parseInt(document.getElementById('nivelB').innerText);
+            let lvl_c = parseInt(document.getElementById('nivelC').innerText);
+            let lvl_d = parseInt(document.getElementById('nivelD').innerText);
+
+            let a1 = parseInt(Math.ceil(pedidos_a / machineA.levels[lvl_a].output * machineA.levels[lvl_a].input)); // 1 insumo, 2 outputs
+            let b1 = parseInt(Math.ceil(pedidos_b / machineB.levels[lvl_b].output * machineB.levels[lvl_b].input)); // 1 insumo, 1 outputs
+            let c1 = parseInt(Math.ceil(pedidos_c / machineC.levels[lvl_c].output * machineC.levels[lvl_c].input)); // 2 insumos, 1 output
+            if (stock > a1 + b1 + c1) {
+                let ventas = pedidos_a * machineA.levels[lvl_a].price + pedidos_b * machineB.levels[lvl_b].price + pedidos_c * machineC.levels[lvl_c].price; //$5 x a, $2 x b, $4 x c
+                let insumos_restantes = stock - a1 - b1 - c1;
+
+                alert('Ventas por: $' + ventas + ' y te quedan ' + insumos_restantes + ' en insumos.');
+                document.getElementById('counterD').innerText = insumos_restantes;
+                // Hide the popup after calculation
+                var popup = document.getElementById('popup');
+                popup.style.display = 'none';
+            } else {
+                alert('no te alcanzan los insumos ' + stock + '. Pedidos: ' + a1 + ' , ' + b1 + ' , ' + c1);
+                var popup = document.getElementById('popup');
+                popup.style.display = 'none';
+            }
+
+        }
     </script>
 </body>
+
 </html>
