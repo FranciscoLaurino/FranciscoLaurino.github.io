@@ -12,8 +12,11 @@
     <div class="container">
         <h3>Vivero: Buenas ventas en verano!</h3>
         <h3>Pedidos A: <span id="counterA">0</span></h3>
-        <h4>Maquina A: <span id="nivelA">1</span> Precio Venta $<span id="priceA"></span></h4>
-        <h4>Maquina A: Ratio Input:<span id="inputA"></span> Output: <span id="outputA"></span></h4>
+        <h4>Maquina A: <span id="nivelA">1</span></h4>
+        <!--<h4>Maquina A: Ratio Input: <span id="inputA"></span> Output: <span id="outputA"></span></h4>-->
+        <h4>Maquina A: Ratio Input: <span id="inputA"></span> Output: <span id="outputA"></span> $<span
+                id="priceA"></span></h4>
+
 
         <div class="btn-group">
             <button onclick="decrement('A')">-</button>
@@ -48,7 +51,9 @@
     </div>
     <script>
 
-        // Function to display selling price, input, and output for each machine
+
+
+        // Function to display machine details including selling price, input, and output for each machine
         function displayMachineDetails(machineId) {
             const nivelElement = document.getElementById(`nivel${machineId}`);
             const level = parseInt(nivelElement.innerText);
@@ -65,6 +70,9 @@
         displayMachineDetails('A');
         displayMachineDetails('B');
         displayMachineDetails('C');
+
+
+
 
 
 
