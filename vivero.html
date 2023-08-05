@@ -167,7 +167,7 @@ function upgrade(counterName) {
         let nC = document.getElementById('nivelC').innerText;
         priceCElement.textContent = machineC.levels[nC].price;
 
-
+/*
         function calculate() {
             let pedidos_a = parseInt(document.getElementById('counterA').innerText);
             let pedidos_b = parseInt(document.getElementById('counterB').innerText);
@@ -197,6 +197,66 @@ function upgrade(counterName) {
             }
 
         }
+*/
+        function calculate() {
+    const counterElements = {
+        A: document.getElementById('counterA'),
+        B: document.getElementById('counterB'),
+        C: document.getElementById('counterC'),
+        D: document.getElementById('counterD'),
+    };
+
+    const nivelElements = {
+        A: document.getElementById('nivelA'),
+        B: document.getElementById('nivelB'),
+        C: document.getElementById('nivelC'),
+        D: document.getElementById('nivelD'),
+    };
+
+    const a1 = Math.ceil(
+        parseInt(counterElements['A'].innerText) /
+        machines['A'].levels[parseInt(nivelElements['A'].innerText)].output *
+        machines['A'].levels[parseInt(nivelElements['A'].innerText)].input
+    );
+
+    const b1 = Math.ceil(
+        parseInt(counterElements['B'].innerText) /
+        machines['B'].levels[parseInt(nivelElements['B'].innerText)].output *
+        machines['B'].levels[parseInt(nivelElements['B'].innerText)].input
+    );
+
+    const c1 = Math.ceil(
+        parseInt(counterElements['C'].innerText) /
+        machines['C'].levels[parseInt(nivelElements['C'].innerText)].output *
+        machines['C'].levels[parseInt(nivelElements['C'].innerText)].input
+    );
+
+    const d1 = Math.ceil(
+        parseInt(counterElements['D'].innerText) /
+        insumosD.levels[parseInt(nivelElements['D'].innerText)].stockMaximo
+    );
+
+    const stock = parseInt(counterElements['D'].innerText);
+    if (stock > a1 + b1 + c1 + d1) {
+        const ventas =
+            parseInt(counterElements['A'].innerText) * machines['A'].levels[parseInt(nivelElements['A'].innerText)].price +
+            parseInt(counterElements['B'].innerText) * machines['B'].levels[parseInt(nivelElements['B'].innerText)].price +
+            parseInt(counterElements['C'].innerText) * machines['C'].levels[parseInt(nivelElements['C'].innerText)].price;
+
+        const insumos_restantes = stock - a1 - b1 - c1 - d1;
+
+        alert('Ventas por: $' + ventas + ' y te quedan ' + insumos_restantes + ' en insumos.');
+        counterElements['D'].innerText = insumos_restantes;
+        // Hide the popup after calculation
+        var popup = document.getElementById('popup');
+        popup.style.display = 'none';
+    } else {
+        alert('No te alcanzan los insumos ' + stock + '. Pedidos: ' + a1 + ' , ' + b1 + ' , ' + c1 + ' , ' + d1);
+        var popup = document.getElementById('popup');
+        popup.style.display = 'none';
+    }
+}
+
     </script>
 </body>
 
