@@ -10,12 +10,10 @@
 
 <body>
     <div class="container">
-        <h3>Vivero: Buenas ventas en verano!</h3>
+        <h3>🌱Vivero: Buenas ventas en verano!🌱</h3>
         <h3>Pedidos A: <span id="counterA">0</span></h3>
-        <h4>Maquina A: <span id="nivelA">1</span></h4>
-        <!--<h4>Maquina A: Ratio Input: <span id="inputA"></span> Output: <span id="outputA"></span></h4>-->
-        <h4>Maquina A: Ratio Input: <span id="inputA"></span> Output: <span id="outputA"></span> $<span
-                id="priceA"></span></h4>
+        <h4>Maquina A: Nivel <span id="nivelA">1</span></h4>
+        <h4>Ratio Input: <span id="inputA"></span> Output: <span id="outputA"></span> $<span id="priceA"></span></h4>
 
 
         <div class="btn-group">
@@ -25,16 +23,16 @@
         </div>
 
         <h3>Pedidos B: <span id="counterB">0</span></h3>
-        <h4>Maquina B: <span id="nivelB">1</span> Precio Venta $<span id="priceB"></span></h4>
-        <h4>Maquina B: Ratio Input:<span id="inputB"></span> Output: <span id="outputB"></span></h4>
+        <h4>Maquina B: Nivel <span id="nivelB">1</span></h4>
+        <h4>Ratio Input: <span id="inputB"></span> Output: <span id="outputB"></span> $<span id="priceB"></span></h4>
         <div class="btn-group">
             <button onclick="decrement('B')">-</button>
             <button onclick="upgrade('B')">🔼</button>
             <button onclick="increment('B')">+</button>
         </div>
         <h3>Pedidos C: <span id="counterC">0</span></h3>
-        <h4>Maquina C: <span id="nivelC">1</span> Precio Venta $<span id="priceC"></span></h4>
-        <h4>Maquina C: Ratio Input:<span id="inputC"></span> Output: <span id="outputC"></span></h4>
+        <h4>Maquina C: Nivel <span id="nivelC">1</span></h4>
+        <h4>Ratio Input: <span id="inputC"></span> Output: <span id="outputC"></span> $<span id="priceC"></span></h4>
         <div class="btn-group">
             <button onclick="decrement('C')">-</button>
             <button onclick="upgrade('C')">🔼</button>
@@ -73,6 +71,13 @@
                     3: { price: 15, name: "Advanced", input: 2, output: 3 },
                 },
             },
+            D: {
+                levels: {
+                    1: { name: "Basic", maxStock: 100 },
+                    2: { name: "Intermediate", maxStock: 300 },
+                    3: { name: "Advanced", maxStock: 1000 },
+                },
+            },
         };
 
         // Function to display machine details including selling price, input, and output for each machine
@@ -82,16 +87,19 @@
             const priceElement = document.getElementById(`price${machineId}`);
             const inputElement = document.getElementById(`input${machineId}`);
             const outputElement = document.getElementById(`output${machineId}`);
+            const stockElement = document.getElementById(`maxStock${machineId}`);
 
             priceElement.textContent = machines[machineId].levels[level].price;
             inputElement.textContent = machines[machineId].levels[level].input;
             outputElement.textContent = machines[machineId].levels[level].output;
+            stockElement.textContent = machines[machineId].levels[level].maxStock;
         }
 
         // Call the function for each machine
         displayMachineDetails('A');
         displayMachineDetails('B');
         displayMachineDetails('C');
+        displayMachineDetails('D');
 
 
 
