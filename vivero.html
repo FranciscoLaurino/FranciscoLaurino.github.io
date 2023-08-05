@@ -51,7 +51,29 @@
     </div>
     <script>
 
-
+        const machines = {
+            A: {
+                levels: {
+                    1: { price: 5, name: "Basic", input: 1, output: 2 },
+                    2: { price: 10, name: "Intermediate", input: 1, output: 3 },
+                    3: { price: 20, name: "Advanced", input: 1, output: 4 },
+                },
+            },
+            B: {
+                levels: {
+                    1: { price: 2, name: "Basic", input: 1, output: 1 },
+                    2: { price: 3, name: "Intermediate", input: 1, output: 2 },
+                    3: { price: 5, name: "Advanced", input: 1, output: 3 },
+                },
+            },
+            C: {
+                levels: {
+                    1: { price: 4, name: "Basic", input: 2, output: 1 },
+                    2: { price: 8, name: "Intermediate", input: 2, output: 2 },
+                    3: { price: 15, name: "Advanced", input: 2, output: 3 },
+                },
+            },
+        };
 
         // Function to display machine details including selling price, input, and output for each machine
         function displayMachineDetails(machineId) {
@@ -98,29 +120,7 @@
             popup.style.display = 'block';
         }
 
-        const machines = {
-            A: {
-                levels: {
-                    1: { price: 5, name: "Basic", input: 1, output: 2 },
-                    2: { price: 10, name: "Intermediate", input: 1, output: 3 },
-                    3: { price: 20, name: "Advanced", input: 1, output: 4 },
-                },
-            },
-            B: {
-                levels: {
-                    1: { price: 2, name: "Basic", input: 1, output: 1 },
-                    2: { price: 3, name: "Intermediate", input: 1, output: 2 },
-                    3: { price: 5, name: "Advanced", input: 1, output: 3 },
-                },
-            },
-            C: {
-                levels: {
-                    1: { price: 4, name: "Basic", input: 2, output: 1 },
-                    2: { price: 8, name: "Intermediate", input: 2, output: 2 },
-                    3: { price: 15, name: "Advanced", input: 2, output: 3 },
-                },
-            },
-        };
+
 
         function upgrade(counterName) {
             var nivelMaquinaElement = document.getElementById("nivel" + counterName);
