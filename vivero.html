@@ -12,7 +12,7 @@
     <div class="container">
         <h3>Vivero: Buenas ventas en verano!</h3>
         <h3>Pedidos A: <span id="counterA">0</span></h3>
-        <h4>Maquina A: <span id="nivelA">1</span> $<span id="priceA"></span></h4>
+        <h4>Maquina A: <span id="nivelA"></span> $<span id="priceA"></span></h4>
         <h4>Maquina A: Ratio Input:<span id="inputA"></span> Output: <span id="outputA"></span></h4>
 
         <div class="btn-group">
@@ -67,6 +67,7 @@
             const inputElement = document.getElementById(`input${machineId}`);
             const outputElement = document.getElementById(`output${machineId}`);
 
+            nivelElement.textContent = level;
             priceElement.textContent = machines[machineId].levels[level].price;
             inputElement.textContent = machines[machineId].levels[level].input;
             outputElement.textContent = machines[machineId].levels[level].output;
