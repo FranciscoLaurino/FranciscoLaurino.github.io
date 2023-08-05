@@ -12,7 +12,7 @@
     <div class="container">
         <h3>Vivero: Buenas ventas en verano!</h3>
         <h3>Pedidos A: <span id="counterA">0</span></h3>
-        <h4>Maquina A: <span id="nivelA"></span> $<span id="priceA"></span></h4>
+        <h4>Maquina A: <span id="nivelA">1</span> Precio Venta $<span id="priceA"></span></h4>
         <h4>Maquina A: Ratio Input:<span id="inputA"></span> Output: <span id="outputA"></span></h4>
 
         <div class="btn-group">
@@ -22,14 +22,16 @@
         </div>
 
         <h3>Pedidos B: <span id="counterB">0</span></h3>
-        <h4>Maquina B: <span id="nivelB">1</span> $<span id="priceB"></span></h4>
+        <h4>Maquina B: <span id="nivelB">1</span> Precio Venta $<span id="priceB"></span></h4>
+        <h4>Maquina B: Ratio Input:<span id="inputB"></span> Output: <span id="outputB"></span></h4>
         <div class="btn-group">
             <button onclick="decrement('B')">-</button>
             <button onclick="upgrade('B')">🔼</button>
             <button onclick="increment('B')">+</button>
         </div>
         <h3>Pedidos C: <span id="counterC">0</span></h3>
-        <h4>Maquina C: <span id="nivelC">1</span> $<span id="priceC"></span></h4>
+        <h4>Maquina C: <span id="nivelC">1</span> Precio Venta $<span id="priceC"></span></h4>
+        <h4>Maquina C: Ratio Input:<span id="inputC"></span> Output: <span id="outputC"></span></h4>
         <div class="btn-group">
             <button onclick="decrement('C')">-</button>
             <button onclick="upgrade('C')">🔼</button>
@@ -45,20 +47,7 @@
         <button onclick="calculate()">Calcular</button>
     </div>
     <script>
-        /*
-        //Display selling price at the start
-        let priceAElement = document.getElementById('priceA');
-        let nA = document.getElementById('nivelA').innerText;
-        priceAElement.textContent = machineA.levels[nA].price;
 
-        let priceBElement = document.getElementById('priceB');
-        let nB = document.getElementById('nivelB').innerText;
-        priceBElement.textContent = machineB.levels[nB].price;
-
-        let priceCElement = document.getElementById('priceC');
-        let nC = document.getElementById('nivelC').innerText;
-        priceCElement.textContent = machineC.levels[nC].price;
-*/
         // Function to display selling price, input, and output for each machine
         function displayMachineDetails(machineId) {
             const nivelElement = document.getElementById(`nivel${machineId}`);
@@ -67,7 +56,6 @@
             const inputElement = document.getElementById(`input${machineId}`);
             const outputElement = document.getElementById(`output${machineId}`);
 
-            nivelElement.textContent = level;
             priceElement.textContent = machines[machineId].levels[level].price;
             inputElement.textContent = machines[machineId].levels[level].input;
             outputElement.textContent = machines[machineId].levels[level].output;
@@ -95,60 +83,13 @@
                 counterElement.innerText = currentValue - 1;
             }
         }
-        /*
-                function upgrade(counterName) {
-                    var nivelMaquinaElement = document.getElementById('nivel' + counterName);
-                    var precioMaquinaElement = document.getElementById('price' + counterName);
-                    var currentValue = parseInt(nivelMaquinaElement.innerText);
-                   
-                    var newLevel = currentValue + 1;
-        
-                    var confirmUpgrade = confirm("Do you want to upgrade the machine to level " + newLevel + "for $100?");
-        
-                    if (confirmUpgrade) {
-        
-                        nivelMaquinaElement.innerText = newLevel;
-                        precioMaquinaElement.innerText = machine+counterName.levels[newLevel].price;//no se si se puede concatenar
-                        // Your code to perform the actual upgrade goes here
-        
-                    }
-                }
-        */
+
         // Popup Calculation
         function showPopup() {
             var popup = document.getElementById('popup');
             popup.style.display = 'block';
         }
-        /*
-                const machineA = {
-                    levels: {
-                        1: { price: 5, name: "Basic", input: 1, output: 2 },
-                        2: { price: 10, name: "Intermediate", input: 1, output: 3 },
-                        3: { price: 20, name: "Advanced", input: 1, output: 4 }
-                    }
-                };
-                const machineB = {
-                    levels: {
-                        1: { price: 2, name: "Basic", input: 1, output: 1 },
-                        2: { price: 3, name: "Intermediate", input: 1, output: 2 },
-                        3: { price: 5, name: "Advanced", input: 1, output: 3 }
-                    }
-                };
-                const machineC = {
-                    levels: {
-                        1: { price: 4, name: "Basic", input: 2, output: 1 },
-                        2: { price: 8, name: "Intermediate", input: 2, output: 2 },
-                        3: { price: 15, name: "Advanced", input: 2, output: 3 }
-                    }
-                };
-                const insumosD = {
-                    levels: {
-                        1: { stockMaximo: 50, name: "Basic"},
-                        2: { stockMaximo: 100, name: "Intermediate"},
-                        3: { stockMaximo: 200, name: "Advanced"}
-                    }
-                };
-                */
+
         const machines = {
             A: {
                 levels: {
