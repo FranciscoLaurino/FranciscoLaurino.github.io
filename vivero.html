@@ -39,7 +39,8 @@
             <button onclick="increment('C')">+</button>
         </div>
         <h3>Insumos: <span id="counterD">0</span></h3>
-        <h4>Stock nivel: <span id="nivelD">1</span> Maximo: <span id="outputD"></span></h4>
+        <h4>Stock nivel: <span id="nivelD">1</span></h4>
+        <h4><span id="inputD"></span> Stock Maximo: <span id="outputD"></span> <span id="priceD"></span></h4>
         <div class="btn-group">
             <button onclick="decrement('D')">-</button>
             <button onclick="upgrade('D')">🔼</button>
@@ -87,7 +88,7 @@
             const priceElement = document.getElementById(`price${machineId}`);
             const inputElement = document.getElementById(`input${machineId}`);
             const outputElement = document.getElementById(`output${machineId}`);
-            
+
             if (machines[machineId].levels[level].price !== undefined) {
                 priceElement.textContent = machines[machineId].levels[level].price;
             }
