@@ -39,7 +39,7 @@
             <button onclick="increment('C')">+</button>
         </div>
         <h3>Insumos: <span id="counterD">0</span></h3>
-        <h4>Stock nivel: <span id="nivelD">1</span> Maximo: <span id="maxStockD"></span></h4>
+        <h4>Stock nivel: <span id="nivelD">1</span> Maximo: <span id="outputD"></span></h4>
         <div class="btn-group">
             <button onclick="decrement('D')">-</button>
             <button onclick="upgrade('D')">🔼</button>
@@ -73,9 +73,9 @@
             },
             D: {
                 levels: {
-                    1: { name: "Basic", maxStock: 100 },
-                    2: { name: "Intermediate", maxStock: 300 },
-                    3: { name: "Advanced", maxStock: 1000 },
+                    1: { price: 100, name: "Basic", input: 2, output: 100 },
+                    2: { price: 200, name: "Intermediate", input: 2, output: 300 },
+                    3: { price: 300, name: "Advanced", input: 2, output: 1000 },
                 },
             },
         };
@@ -92,7 +92,6 @@
             priceElement.textContent = machines[machineId].levels[level].price;
             inputElement.textContent = machines[machineId].levels[level].input;
             outputElement.textContent = machines[machineId].levels[level].output;
-            stockElement.textContent = machines[machineId].levels[level].maxStock;
         }
 
         // Call the function for each machine
@@ -217,19 +216,15 @@
                 machines['C'].levels[parseInt(nivelElements['C'].innerText)].input
             );
 
-            const d1 = Math.ceil(
-                parseInt(counterElements['D'].innerText) /
-                insumosD.levels[parseInt(nivelElements['D'].innerText)].stockMaximo
-            );
 
             const stock = parseInt(counterElements['D'].innerText);
-            if (stock > a1 + b1 + c1 + d1) {
+            if (stock > a1 + b1 + c1 ) {
                 const ventas =
                     parseInt(counterElements['A'].innerText) * machines['A'].levels[parseInt(nivelElements['A'].innerText)].price +
                     parseInt(counterElements['B'].innerText) * machines['B'].levels[parseInt(nivelElements['B'].innerText)].price +
                     parseInt(counterElements['C'].innerText) * machines['C'].levels[parseInt(nivelElements['C'].innerText)].price;
 
-                const insumos_restantes = stock - a1 - b1 - c1 - d1;
+                const insumos_restantes = stock - a1 - b1 - c1;
 
                 alert('Ventas por: $' + ventas + ' y te quedan ' + insumos_restantes + ' en insumos.');
                 counterElements['D'].innerText = insumos_restantes;
@@ -237,7 +232,7 @@
                 var popup = document.getElementById('popup');
                 popup.style.display = 'none';
             } else {
-                alert('No te alcanzan los insumos ' + stock + '. Pedidos: ' + a1 + ' , ' + b1 + ' , ' + c1 + ' , ' + d1);
+                alert('No te alcanzan los insumos ' + stock + '. Pedidos: ' + a1 + ' , ' + b1 + ' , ' + c1 );
                 var popup = document.getElementById('popup');
                 popup.style.display = 'none';
             }
