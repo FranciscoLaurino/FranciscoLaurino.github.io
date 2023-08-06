@@ -55,14 +55,6 @@
               counterElement.innerText = currentValue - 1;
           }
       }
-/*
-      // Popup Calculation
-      function showPopup() {
-          var popup = document.getElementById('popup');
-          popup.style.display = 'block';
-      }
-
-*/
 
       function upgrade(counterName) {
           var nivelMaquinaElement = document.getElementById("nivel" + counterName);
@@ -83,7 +75,7 @@
       }
       function upgradeWarehouse(counterName) {
           var nivelStockElement = document.getElementById("nivel" + counterName);
-          var outputStockElement = document.getElementById("price" + counterName);
+          var outputStockElement = document.getElementById("output" + counterName);
           var currentValue = parseInt(nivelStockElement.innerText);
 
           var newLevel = currentValue + 1;
