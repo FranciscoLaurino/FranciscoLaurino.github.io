@@ -163,7 +163,7 @@
             var v_empleados = parseInt(empleadosElement.innerText);
             dineroElement.innerText = v_dinero - (10*v_empleados); //$10, $15, $25
             turnoElement.innerText = v_turno + 1;
-            if (v_turno > 11) {
+            if (v_turno < 11) {
                 turnoElement.innerText = v_turno + 1;}
                 else{
                     alert('Ultimo turno!');
@@ -177,12 +177,10 @@
         }
 
         function randomCards() {
-            var randomCardElement = document.getElementById('random_A');
-            randomCard(randomCardElement);
-            var randomCardElement = document.getElementById('random_B');
-            randomCard(randomCardElement);
-            var randomCardElement = document.getElementById('random_C');
-            randomCard(randomCardElement);
+            //var randomCardElement = document.getElementById('random_A');
+            randomCard('random_A');
+            randomCard('random_B');
+            randomCard('random_C');
         }
         function randomCard(typeOfOrder) {
             var A_Element = document.getElementById(typeOfOrder);
