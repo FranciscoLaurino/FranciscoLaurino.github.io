@@ -1,4 +1,4 @@
-/* Add this CSS to stylesIndex.css */
+
 body {
   margin: 0;
   padding: 0;
@@ -15,10 +15,10 @@ body {
 }
 
 .image-container {
-  width: 200px; /* Set the desired width of the image container */
-  height: 200px; /* Set the desired height of the image container */
+  width: 100px; /* Set the desired width of the image container */
+  height: 100px; /* Set the desired height of the image container */
   overflow: hidden;
-  border-radius: 60%; /* Set border radius to make it round */
+  border-radius: 70%; /* Set border radius to make it round */
   margin-bottom: 20px; /* Adjust as needed */
 }
 
