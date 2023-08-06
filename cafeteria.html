@@ -42,7 +42,7 @@
         <h4>Stock Unidades Maximo: <span id="outputD"></span> </h4>
         <div class="btn-group">
             <button onclick="decrement('D')">-</button>
-            <button onclick="upgrade('D')">🔼</button>
+            <button onclick="upgradeWarehouse('D')">🔼</button>
             <button onclick="increment('D')">+</button>
         </div>
         <button onclick="calculate()">Calcular</button>
@@ -162,7 +162,22 @@
                 // Your code to perform the actual upgrade goes here
             }
         }
+        function upgradeWarehouse(counterName) {
+            var nivelStockElement = document.getElementById("nivel" + counterName);
+            var outputStockElement = document.getElementById("price" + counterName);
+            var currentValue = parseInt(nivelStockElement.innerText);
 
+            var newLevel = currentValue + 1;
+
+            var confirmUpgrade = confirm(
+                "Quieres upgradear tu deposito a nivel " + newLevel + " por $100?"
+            );
+
+            if (confirmUpgrade) {
+                nivelStockElement.innerText = newLevel;
+                outputStockElement.innerText = machines[counterName].levels[newLevel].output;
+            }
+        }
 
 
 
