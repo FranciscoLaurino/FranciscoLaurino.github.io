@@ -10,8 +10,8 @@
 
 <body>
     <div class="container">
-        <h3>Tienda de Ropa: Navidad ventas dobles y ocasiones especiales!</h3>
-        <h3>Pedidos A: <span id="counterA">0</span></h3>
+        <h4>Tienda de Ropa: Navidad ventas dobles y ocasiones especiales!</h4>
+        <h4>Pedidos A: <span id="counterA">0</span></h4>
         <h4>Maquina A: Nivel <span id="nivelA">1</span></h4>
         <h4>Ratio Input: <span id="inputA"></span> Output: <span id="outputA"></span> $<span id="priceA"></span></h4>
 
@@ -22,7 +22,7 @@
             <button onclick="increment('A')">+</button>
         </div>
 
-        <h3>Pedidos B: <span id="counterB">0</span></h3>
+        <h4>Pedidos B: <span id="counterB">0</span></h3>
         <h4>Maquina B: Nivel <span id="nivelB">1</span></h4>
         <h4>Ratio Input: <span id="inputB"></span> Output: <span id="outputB"></span> $<span id="priceB"></span></h4>
         <div class="btn-group">
@@ -30,7 +30,7 @@
             <button onclick="upgrade('B')">🔼</button>
             <button onclick="increment('B')">+</button>
         </div>
-        <h3>Pedidos C: <span id="counterC">0</span></h3>
+        <h4>Pedidos C: <span id="counterC">0</span></h3>
         <h4>Maquina C: Nivel <span id="nivelC">1</span></h4>
         <h4>Ratio Input: <span id="inputC"></span> Output: <span id="outputC"></span> $<span id="priceC"></span></h4>
         <div class="btn-group">
@@ -38,8 +38,10 @@
             <button onclick="upgrade('C')">🔼</button>
             <button onclick="increment('C')">+</button>
         </div>
-        <h3>Insumos: <span id="counterD">0</span></h3>
-        <h4>Stock nivel: <span id="nivelD">1</span> Maximo: <span id="maxStockD"></span></h4>
+        <h4>Insumos: <span id="counterD">0</span></h3>
+        <h4>Stock nivel: <span id="nivelD">1</span></h4>
+        <!-- <h4><span id="inputD"></span> Stock Maximo: <span id="outputD"></span> <span id="priceD"></span></h4>-->
+        <h4>Stock Unidades Maximo: <span id="outputD"></span> </h4>
         <div class="btn-group">
             <button onclick="decrement('D')">-</button>
             <button onclick="upgrade('D')">🔼</button>
@@ -73,9 +75,9 @@
             },
             D: {
                 levels: {
-                    1: { name: "Basic", maxStock: 100 },
-                    2: { name: "Intermediate", maxStock: 300 },
-                    3: { name: "Advanced", maxStock: 1000 },
+                    1: { price: 100, name: "Basic", input: 2, output: 100 },
+                    2: { price: 200, name: "Intermediate", input: 2, output: 300 },
+                    3: { price: 300, name: "Advanced", input: 2, output: 1000 },
                 },
             },
         };
@@ -87,24 +89,39 @@
             const priceElement = document.getElementById(`price${machineId}`);
             const inputElement = document.getElementById(`input${machineId}`);
             const outputElement = document.getElementById(`output${machineId}`);
-            const stockElement = document.getElementById(`maxStock${machineId}`);
 
-            priceElement.textContent = machines[machineId].levels[level].price;
-            inputElement.textContent = machines[machineId].levels[level].input;
-            outputElement.textContent = machines[machineId].levels[level].output;
-            stockElement.textContent = machines[machineId].levels[level].maxStock;
+            if (machines[machineId].levels[level].price !== undefined) {
+                priceElement.textContent = machines[machineId].levels[level].price;
+            }
+
+            if (machines[machineId].levels[level].input !== undefined) {
+                inputElement.textContent = machines[machineId].levels[level].input;
+            }
+
+            if (machines[machineId].levels[level].output !== undefined) {
+                outputElement.textContent = machines[machineId].levels[level].output;
+            }
+
+        }
+
+        function displayWarehouseDetails(machineId) {
+            const nivelElement = document.getElementById(`nivel${machineId}`);
+            const level = parseInt(nivelElement.innerText);
+            const outputElement = document.getElementById(`output${machineId}`);
+
+            if (machines[machineId].levels[level].output !== undefined) {
+                outputElement.textContent = machines[machineId].levels[level].output;
+            }
+
         }
 
         // Call the function for each machine
-        displayMachineDetails('A');
-        displayMachineDetails('B');
-        displayMachineDetails('C');
-        displayMachineDetails('D');
-
-
-
-
-
+        document.addEventListener("DOMContentLoaded", function () {
+            displayMachineDetails('A');
+            displayMachineDetails('B');
+            displayMachineDetails('C');
+            displayWarehouseDetails('D');
+        });
 
 
         // Individual Counters
@@ -121,14 +138,14 @@
                 counterElement.innerText = currentValue - 1;
             }
         }
-
+/*
         // Popup Calculation
         function showPopup() {
             var popup = document.getElementById('popup');
             popup.style.display = 'block';
         }
 
-
+*/
 
         function upgrade(counterName) {
             var nivelMaquinaElement = document.getElementById("nivel" + counterName);
@@ -215,29 +232,30 @@
                 machines['C'].levels[parseInt(nivelElements['C'].innerText)].input
             );
 
-            const d1 = Math.ceil(
-                parseInt(counterElements['D'].innerText) /
-                insumosD.levels[parseInt(nivelElements['D'].innerText)].stockMaximo
-            );
 
             const stock = parseInt(counterElements['D'].innerText);
-            if (stock > a1 + b1 + c1 + d1) {
+            if (stock > a1 + b1 + c1) {
                 const ventas =
                     parseInt(counterElements['A'].innerText) * machines['A'].levels[parseInt(nivelElements['A'].innerText)].price +
                     parseInt(counterElements['B'].innerText) * machines['B'].levels[parseInt(nivelElements['B'].innerText)].price +
                     parseInt(counterElements['C'].innerText) * machines['C'].levels[parseInt(nivelElements['C'].innerText)].price;
 
-                const insumos_restantes = stock - a1 - b1 - c1 - d1;
+                const insumos_restantes = stock - a1 - b1 - c1;
 
                 alert('Ventas por: $' + ventas + ' y te quedan ' + insumos_restantes + ' en insumos.');
-                counterElements['D'].innerText = insumos_restantes;
+                //counterElements['D'].innerText = insumos_restantes;
+                document.getElementById('counterD').innerText = insumos_restantes;
                 // Hide the popup after calculation
                 var popup = document.getElementById('popup');
                 popup.style.display = 'none';
+
+
             } else {
-                alert('No te alcanzan los insumos ' + stock + '. Pedidos: ' + a1 + ' , ' + b1 + ' , ' + c1 + ' , ' + d1);
+                alert('No te alcanzan los insumos ' + stock + '. Pedidos: ' + a1 + ' , ' + b1 + ' , ' + c1);
                 var popup = document.getElementById('popup');
                 popup.style.display = 'none';
+
+
             }
         }
 
