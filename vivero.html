@@ -131,14 +131,14 @@
                 counterElement.innerText = currentValue - 1;
             }
         }
-
+/*
         // Popup Calculation
         function showPopup() {
             var popup = document.getElementById('popup');
             popup.style.display = 'block';
         }
 
-
+*/
 
         function upgrade(counterName) {
             var nivelMaquinaElement = document.getElementById("nivel" + counterName);
@@ -236,14 +236,19 @@
                 const insumos_restantes = stock - a1 - b1 - c1;
 
                 alert('Ventas por: $' + ventas + ' y te quedan ' + insumos_restantes + ' en insumos.');
-                counterElements['D'].innerText = insumos_restantes;
+                //counterElements['D'].innerText = insumos_restantes;
+                document.getElementById('counterD').innerText = insumos_restantes;
                 // Hide the popup after calculation
                 var popup = document.getElementById('popup');
                 popup.style.display = 'none';
+
+
             } else {
                 alert('No te alcanzan los insumos ' + stock + '. Pedidos: ' + a1 + ' , ' + b1 + ' , ' + c1);
                 var popup = document.getElementById('popup');
                 popup.style.display = 'none';
+
+
             }
         }
 
