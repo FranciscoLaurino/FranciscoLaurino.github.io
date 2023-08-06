@@ -152,7 +152,7 @@
 
 
           }
-
+        }
 
           function pagarSueldos() {
             var dineroElement = document.getElementById('dinero');
@@ -175,4 +175,20 @@
             var currentValue = parseInt(empleadosElement.innerText);
             empleadosElement.innerText = currentValue + 1;
         }
-      }
+
+        function randomCards() {
+            var randomCardElement = document.getElementById('random_A');
+            randomCard(randomCardElement);
+            var randomCardElement = document.getElementById('random_B');
+            randomCard(randomCardElement);
+            var randomCardElement = document.getElementById('random_C');
+            randomCard(randomCardElement);
+        }
+        function randomCard(typeOfOrder) {
+            var A_Element = document.getElementById(typeOfOrder);
+            var random_A = getRandomInt(0, 5);
+            A_Element.innerText = random_A;
+        }
+        function getRandomInt(min, max) {
+            return Math.floor(Math.random() * (max - min + 1)) + min;
+          }
