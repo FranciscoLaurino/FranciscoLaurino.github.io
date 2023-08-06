@@ -87,11 +87,19 @@
             const priceElement = document.getElementById(`price${machineId}`);
             const inputElement = document.getElementById(`input${machineId}`);
             const outputElement = document.getElementById(`output${machineId}`);
-            const stockElement = document.getElementById(`maxStock${machineId}`);
+            
+            if (machines[machineId].levels[level].price !== undefined) {
+                priceElement.textContent = machines[machineId].levels[level].price;
+            }
 
-            priceElement.textContent = machines[machineId].levels[level].price;
-            inputElement.textContent = machines[machineId].levels[level].input;
-            outputElement.textContent = machines[machineId].levels[level].output;
+            if (machines[machineId].levels[level].input !== undefined) {
+                inputElement.textContent = machines[machineId].levels[level].input;
+            }
+
+            if (machines[machineId].levels[level].output !== undefined) {
+                outputElement.textContent = machines[machineId].levels[level].output;
+            }
+
         }
 
         // Call the function for each machine
@@ -218,7 +226,7 @@
 
 
             const stock = parseInt(counterElements['D'].innerText);
-            if (stock > a1 + b1 + c1 ) {
+            if (stock > a1 + b1 + c1) {
                 const ventas =
                     parseInt(counterElements['A'].innerText) * machines['A'].levels[parseInt(nivelElements['A'].innerText)].price +
                     parseInt(counterElements['B'].innerText) * machines['B'].levels[parseInt(nivelElements['B'].innerText)].price +
@@ -232,7 +240,7 @@
                 var popup = document.getElementById('popup');
                 popup.style.display = 'none';
             } else {
-                alert('No te alcanzan los insumos ' + stock + '. Pedidos: ' + a1 + ' , ' + b1 + ' , ' + c1 );
+                alert('No te alcanzan los insumos ' + stock + '. Pedidos: ' + a1 + ' , ' + b1 + ' , ' + c1);
                 var popup = document.getElementById('popup');
                 popup.style.display = 'none';
             }
