@@ -90,39 +90,6 @@
           }
       }
 
-
-
-      /*
-              function calculate() {
-                  let pedidos_a = parseInt(document.getElementById('counterA').innerText);
-                  let pedidos_b = parseInt(document.getElementById('counterB').innerText);
-                  let pedidos_c = parseInt(document.getElementById('counterC').innerText);
-                  let stock = parseInt(document.getElementById('counterD').innerText);
-                  let lvl_a = parseInt(document.getElementById('nivelA').innerText);
-                  let lvl_b = parseInt(document.getElementById('nivelB').innerText);
-                  let lvl_c = parseInt(document.getElementById('nivelC').innerText);
-                  let lvl_d = parseInt(document.getElementById('nivelD').innerText);
-      
-                  let a1 = parseInt(Math.ceil(pedidos_a / machineA.levels[lvl_a].output * machineA.levels[lvl_a].input)); // 1 insumo, 2 outputs
-                  let b1 = parseInt(Math.ceil(pedidos_b / machineB.levels[lvl_b].output * machineB.levels[lvl_b].input)); // 1 insumo, 1 outputs
-                  let c1 = parseInt(Math.ceil(pedidos_c / machineC.levels[lvl_c].output * machineC.levels[lvl_c].input)); // 2 insumos, 1 output
-                  if (stock > a1 + b1 + c1) {
-                      let ventas = pedidos_a * machineA.levels[lvl_a].price + pedidos_b * machineB.levels[lvl_b].price + pedidos_c * machineC.levels[lvl_c].price; //$5 x a, $2 x b, $4 x c
-                      let insumos_restantes = stock - a1 - b1 - c1;
-      
-                      alert('Ventas por: $' + ventas + ' y te quedan ' + insumos_restantes + ' en insumos.');
-                      document.getElementById('counterD').innerText = insumos_restantes;
-                      // Hide the popup after calculation
-                      var popup = document.getElementById('popup');
-                      popup.style.display = 'none';
-                  } else {
-                      alert('no te alcanzan los insumos ' + stock + '. Pedidos: ' + a1 + ' , ' + b1 + ' , ' + c1);
-                      var popup = document.getElementById('popup');
-                      popup.style.display = 'none';
-                  }
-      
-              }
-      */
       function calculate() {
           const counterElements = {
               A: document.getElementById('counterA'),
@@ -169,6 +136,10 @@
               alert('Ventas por: $' + ventas + ' y te quedan ' + insumos_restantes + ' en insumos.');
               //counterElements['D'].innerText = insumos_restantes;
               document.getElementById('counterD').innerText = insumos_restantes;
+              var dineroElement = document.getElementById('dinero');
+              var v_dinero = parseInt(dineroElement.innerText);
+              dineroElement.innerText = v_dinero + ventas;
+
               // Hide the popup after calculation
               var popup = document.getElementById('popup');
               popup.style.display = 'none';
@@ -181,4 +152,27 @@
 
 
           }
+
+
+          function pagarSueldos() {
+            var dineroElement = document.getElementById('dinero');
+            var v_dinero = parseInt(dineroElement.innerText);
+            var turnoElement = document.getElementById('turno');
+            var v_turno = parseInt(turnoElement.innerText);
+            var empleadosElement = document.getElementById('empleados');
+            var v_empleados = parseInt(empleadosElement.innerText);
+            dineroElement.innerText = v_dinero - (10*v_empleados); //$10, $15, $25
+            turnoElement.innerText = v_turno + 1;
+            if (v_turno > 11) {
+                turnoElement.innerText = v_turno + 1;}
+                else{
+                    alert('Ultimo turno!');
+            }
+        }
+
+        function incrementEmpleados() {
+            var empleadosElement = document.getElementById('empleados');
+            var currentValue = parseInt(empleadosElement.innerText);
+            empleadosElement.innerText = currentValue + 1;
+        }
       }
