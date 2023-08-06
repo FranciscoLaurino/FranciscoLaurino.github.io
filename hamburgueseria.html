@@ -11,42 +11,45 @@
 
 <body>
     <div class="container">
-        <h4>Hamburgueseria: Buenas ventas en verano!</h4>
+        <h4>🍔Hamburgueseria🍔:</h4>
+        <h5>Buenas ventas en verano!</h5>
         <h4>Pedidos A: <span id="counterA">0</span></h4>
         <h4>Maquina A: Nivel <span id="nivelA">1</span></h4>
         <h4>Ratio Input: <span id="inputA"></span> Output: <span id="outputA"></span> $<span id="priceA"></span></h4>
-
-
         <div class="btn-group">
             <button onclick="decrement('A')">-</button>
             <button onclick="upgrade('A')">🔼</button>
-            <button onclick="increment('A')">+</button>
+            <button onclick="increment('A',1)">+1</button>
+            <button onclick="increment('A',10)">+10</button>
         </div>
 
         <h4>Pedidos B: <span id="counterB">0</span></h3>
         <h4>Maquina B: Nivel <span id="nivelB">1</span></h4>
         <h4>Ratio Input: <span id="inputB"></span> Output: <span id="outputB"></span> $<span id="priceB"></span></h4>
         <div class="btn-group">
-            <button onclick="decrement('B')">-</button>
+            <button onclick="decrement('B')">-1</button>
             <button onclick="upgrade('B')">🔼</button>
-            <button onclick="increment('B')">+</button>
+            <button onclick="increment('B',1)">+1</button>
+            <button onclick="increment('B',10)">+10</button>
         </div>
+
         <h4>Pedidos C: <span id="counterC">0</span></h3>
         <h4>Maquina C: Nivel <span id="nivelC">1</span></h4>
         <h4>Ratio Input: <span id="inputC"></span> Output: <span id="outputC"></span> $<span id="priceC"></span></h4>
         <div class="btn-group">
-            <button onclick="decrement('C')">-</button>
+            <button onclick="decrement('C')">-1</button>
             <button onclick="upgrade('C')">🔼</button>
-            <button onclick="increment('C')">+</button>
+            <button onclick="increment('C',1)">+1</button>
+            <button onclick="increment('C',10)">+10</button>
         </div>
         <h4>Insumos: <span id="counterD">0</span></h3>
         <h4>Stock nivel: <span id="nivelD">1</span></h4>
-        <!-- <h4><span id="inputD"></span> Stock Maximo: <span id="outputD"></span> <span id="priceD"></span></h4>-->
         <h4>Stock Unidades Maximo: <span id="outputD"></span> </h4>
         <div class="btn-group">
-            <button onclick="decrement('D')">-</button>
+            <button onclick="decrement('D')">-1</button>
             <button onclick="upgrade('D')">🔼</button>
-            <button onclick="increment('D')">+</button>
+            <button onclick="increment('D',1)">+1</button>
+            <button onclick="increment('D',10)">+10</button>
         </div>
         <button onclick="calculate()">Calcular</button>
     </div>

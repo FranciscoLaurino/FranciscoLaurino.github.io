@@ -42,10 +42,10 @@
 
 
       // Individual Counters
-      function increment(counterName) {
+      function increment(counterName,amount) {
           var counterElement = document.getElementById('counter' + counterName);
           var currentValue = parseInt(counterElement.innerText);
-          counterElement.innerText = currentValue + 1;
+          counterElement.innerText = currentValue + amount;
       }
 
       function decrement(counterName) {
