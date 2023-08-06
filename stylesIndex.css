@@ -15,8 +15,8 @@ body {
 }
 
 .image-container {
-  width: 100px; /* Set the desired width of the image container */
-  height: 100px; /* Set the desired height of the image container */
+  width: 150px; /* Set the desired width of the image container */
+  height: 150px; /* Set the desired height of the image container */
   overflow: hidden;
   border-radius: 70%; /* Set border radius to make it round */
   margin-bottom: 20px; /* Adjust as needed */
