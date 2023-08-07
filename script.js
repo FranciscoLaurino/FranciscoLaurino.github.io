@@ -228,7 +228,7 @@ function ascenderNcontratar() {
     var currentValue = parseInt(empleadosElement.innerText);
     empleadosElement.innerText = currentValue + 1;
 
-    
+
 }
 
 function randomCards() {
@@ -236,6 +236,7 @@ function randomCards() {
     randomCard('random_A');
     randomCard('random_B');
     randomCard('random_C');
+    logAction(action); // no se si functiona
 }
 function randomCard(typeOfOrder) {
     var A_Element = document.getElementById(typeOfOrder);
@@ -245,3 +246,29 @@ function randomCard(typeOfOrder) {
 function getRandomInt(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
 }
+
+
+//for log:
+function logAction(action) {
+    const logList = document.getElementById("logList");
+    const li = document.createElement("li");
+    li.textContent = action;
+    logList.appendChild(li);
+}
+
+function performAction(action) {
+    // Perform your action here
+    // For example: update counters, levels, etc.
+    
+    // Log the action
+    logAction(action);
+}
+
+// Attach event listeners to your buttons
+const buttons = document.querySelectorAll(".btn-group button");
+buttons.forEach(button => {
+    button.addEventListener("click", function() {
+        const action = this.textContent;
+        performAction(action);
+    });
+});
