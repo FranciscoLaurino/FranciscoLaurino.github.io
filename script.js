@@ -113,7 +113,8 @@ function upgrade(counterName) {
         var dineroElement = document.getElementById('dinero');
         var v_dinero = parseInt(dineroElement.innerText);
         dineroElement.innerText = v_dinero - 50;
-        logAction(`Upgraded machine ${counterName} to level ${newLevel}`);
+        //log
+        logAction('Upgraded machine to new level');
     }
 }
 function upgradeWarehouse(counterName) {
@@ -264,7 +265,7 @@ function performAction(action) {
     // Log the action
     logAction(action);
 }
-
+/*
 // Attach event listeners to your buttons
 const buttons = document.querySelectorAll(".btn-group button");
 buttons.forEach(button => {
@@ -273,3 +274,4 @@ buttons.forEach(button => {
         performAction(action);
     });
 });
+*/
