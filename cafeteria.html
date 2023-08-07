@@ -49,9 +49,9 @@
           <button onclick="increment('D',1)">+1</button>
           <button onclick="increment('D',10)">+10</button>
       </div>
-      <button onclick="comprarMaquina()">comprar Maquina</button>
-      <button onclick="calculate()">Calcular</button>
-      <button onclick="randomCards()">Random Cards</button>
+      <div class="btn-group"><button onclick="calculate()">Calcular</button></div>
+      <div class="btn-group"><button onclick="randomCards()">Random Cards</button></div>
+      <div class="btn-group"><button onclick="comprarMaquina()">Comprar Maquina</button></div>
       <h6>Random A: <span id="random_A">0</span> B: <span id="random_B">0</span> C: <span id="random_C">0</span></h6>
       <h4>Dinero: $<span id="dinero">50</span></h4>
       <h4>Turno: <span id="turno">1</span></h4>
@@ -60,6 +60,7 @@
       <!-- Faltaria logica de maquinas solo operadas si empelados son del nivel correcto -->
       <!-- Faltaria mostrar en un upgrade los valores de la maquina siguiente ratio, precio venta, etc -->
       <!-- Faltaria tener un log -->
+      <!-- Faltaria comprarMaquina -->
       <div class="btn-group">
         <button onclick="ascenderNcontratar(emp1)">empleado Jr 1</button>
         <button onclick="ascenderNcontratar(emp2)">empleado Jr 2</button>

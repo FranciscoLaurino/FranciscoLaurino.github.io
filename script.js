@@ -113,6 +113,7 @@ function upgrade(counterName) {
         var dineroElement = document.getElementById('dinero');
         var v_dinero = parseInt(dineroElement.innerText);
         dineroElement.innerText = v_dinero - 50;
+        logAction(`Upgraded machine ${counterName} to level ${newLevel}`);
     }
 }
 function upgradeWarehouse(counterName) {
