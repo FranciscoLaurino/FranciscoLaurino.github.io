@@ -114,7 +114,7 @@ function upgrade(counterName) {
         var v_dinero = parseInt(dineroElement.innerText);
         dineroElement.innerText = v_dinero - 50;
         //log
-        logAction('Upgraded machine to new level');
+        logAction('Subiste el nivel de una maquina');
     }
 }
 function upgradeWarehouse(counterName) {
@@ -135,6 +135,8 @@ function upgradeWarehouse(counterName) {
         var dineroElement = document.getElementById('dinero');
         var v_dinero = parseInt(dineroElement.innerText);
         dineroElement.innerText = v_dinero - 50;
+                //log
+                logAction('Subiste la capacidad de tu deposito');
     }
 }
 
@@ -180,10 +182,11 @@ function calculate() {
             parseInt(counterElements['B'].innerText) * machines['B'].levels[parseInt(nivelElements['B'].innerText)].price +
             parseInt(counterElements['C'].innerText) * machines['C'].levels[parseInt(nivelElements['C'].innerText)].price;
 
-        const insumos_restantes = stock - a1 - b1 - c1;
+        const insumosGastados = a1 + b1 + c1;
+        const insumos_restantes = stock - insumosGastados;
+        alert('Ventas por: $' + ventas + 'Gastaste:' + insumosGastados + 'insumos  y te quedan ' + insumos_restantes + ' en deposito.');
 
-        alert('Ventas por: $' + ventas + ' y te quedan ' + insumos_restantes + ' en insumos.');
-        //counterElements['D'].innerText = insumos_restantes;
+        //reseteo de todas las variables de pedidos
         document.getElementById('counterA').innerText = 0;
         document.getElementById('counterB').innerText = 0;
         document.getElementById('counterC').innerText = 0;
@@ -193,6 +196,8 @@ function calculate() {
         var dineroElement = document.getElementById('dinero');
         var v_dinero = parseInt(dineroElement.innerText);
         dineroElement.innerText = v_dinero + ventas;
+        //log
+        logAction('Ventas por: $' + ventas + 'Gastaste:' + insumosGastados + 'insumos  y te quedan ' + insumos_restantes + ' en deposito.');
 
         // Hide the popup after calculation
         var popup = document.getElementById('popup');
@@ -215,13 +220,18 @@ function pagarSueldos() {
     var v_turno = parseInt(turnoElement.innerText);
     var empleadosElement = document.getElementById('empleados');
     var v_empleados = parseInt(empleadosElement.innerText);
-    dineroElement.innerText = v_dinero - (10 * v_empleados); //$10, $15, $25
-    turnoElement.innerText = v_turno + 1;
+    var sueldosApagar = (10 * v_empleados); //$10, $15, $25
+    dineroElement.innerText = v_dinero - sueldosApagar;
     if (v_turno < 11) {
         turnoElement.innerText = v_turno + 1;
+        //log
+        logAction('Pagaste $' + sueldosApagar + 'en sueldos.');
+        logAction('Arranca Turno:' + turnoElement.innerText);
     }
     else {
         alert('Ultimo turno!');
+        turnoElement.innerText = v_turno + 1;
+        logAction('Arranca Turno:' + turnoElement.innerText);
     }
 }
 
@@ -229,7 +239,7 @@ function ascenderNcontratar() {
     var empleadosElement = document.getElementById('empleados');
     var currentValue = parseInt(empleadosElement.innerText);
     empleadosElement.innerText = currentValue + 1;
-
+    logAction('Contrataste un nuevo empleado:');
 
 }
 
