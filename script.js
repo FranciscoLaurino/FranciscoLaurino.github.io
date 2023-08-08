@@ -117,6 +117,30 @@ function upgrade(counterName) {
         logAction('Subiste el nivel de una maquina');
     }
 }
+
+function comprarMaquina(counterName) {
+    var nivelMaquinaElement = document.getElementById("nivel" + counterName);
+    var precioMaquinaElement = document.getElementById("price" + counterName);
+    var currentValue = parseInt(nivelMaquinaElement.innerText);
+
+    var newLevel = currentValue + 1;
+
+    var confirmUpgrade = confirm(
+        "Quieres comprar una maquina por $50?"
+    );
+
+    if (confirmUpgrade) {
+        //Faltaria "habilitar" la maquina C una vez que se compra
+        
+        //Actualizar dinero
+        var dineroElement = document.getElementById('dinero');
+        var v_dinero = parseInt(dineroElement.innerText);
+        dineroElement.innerText = v_dinero - 50;
+        //log
+        logAction('Compraste una maquina');
+    }
+}
+
 function upgradeWarehouse(counterName) {
     var nivelStockElement = document.getElementById("nivel" + counterName);
     var outputStockElement = document.getElementById("output" + counterName);
@@ -235,7 +259,10 @@ function pagarSueldos() {
     }
 }
 
-function ascenderNcontratar() {
+function ascenderNcontratar(empleado) {
+    var empleadosElement = document.getElementById(empleado);
+
+    //actualizar cantidad de empleados
     var empleadosElement = document.getElementById('empleados');
     var currentValue = parseInt(empleadosElement.innerText);
     empleadosElement.innerText = currentValue + 1;
